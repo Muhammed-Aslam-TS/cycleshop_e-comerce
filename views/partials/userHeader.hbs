@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- molla/index-2.html  22 Nov 2019 09:55:32 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Molla - Bootstrap eCommerce Template</title>
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Molla - Bootstrap eCommerce Template">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/icons/site.html">
+    <link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="/assets/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/css/plugins/magnific-popup/magnific-popup.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    {{!--
+    /////////////////////// --}}
+
+    <link rel="stylesheet" href="/userAssets/css/bootstrap.min.css">
+    <!-- Main CSS File -->
+    <!-- CSS only -->
+    <link rel="stylesheet" href="/userAssets/css/style.css">
+    <link rel="stylesheet" href="/stylesheets/progressBar.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-left">
+                    <div class="header-dropdown">
+                        <a href="#">Usd</a>
+                        <div class="header-menu">
+                            <ul>
+                                <li><a href="#">Eur</a></li>
+                                <li><a href="#">Usd</a></li>
+                            </ul>
+                        </div><!-- End .header-menu -->
+                    </div><!-- End .header-dropdown -->
+
+                    <div class="header-dropdown">
+                        <a href="#">Eng</a>
+                        <div class="header-menu">
+                            <ul>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">French</a></li>
+                                <li><a href="#">Spanish</a></li>
+                            </ul>
+                        </div><!-- End .header-menu -->
+                    </div><!-- End .header-dropdown -->
+                </div><!-- End .header-left -->
+
+                <div class="header-right">
+                    <ul class="top-menu">
+                        <li>
+                            <a href="#">Links</a>
+                            <ul>
+                                <li><a href="tel:#"><i class="icon-phone"></i>Call: +91 807 896 8797</a></li>
+                                <li><a href="/wishlist"><i class="icon-heart-o">
+                                        </i>My Wishlist<span class="wish-count">{{wishlistCount}}</span></a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                {{#if user}}
+                                <li><a href="/dashbord">My Account</a></li>
+                                {{/if}}
+                                {{#if user}}
+                                <li><a href="/logout"><i class="icon-user"></i>Log out</a>
+                                    {{else}}
+                                <li><a href="/login"><i class="icon-user"></i>Login</a>
+                                    {{/if}}
+
+                                    {{!-- <a href="#signin-modal" data-toggle="modal"> --}}
+                                        {{!-- modal --}}
+
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!-- End .top-menu -->
+                </div><!-- End .header-right -->
+            </div><!-- End .container -->
+        </div><!-- End .header-top -->
+
+        <div class="header-middle sticky-header">
+            <div class="container">
+                <div class="header-left">
+                    <button class="mobile-menu-toggler">
+                        <span class="sr-only">Toggle mobile menu</span>
+                        <i class="icon-bars"></i>
+                    </button>
+
+                    <a href="/" class="logo">
+                        <img src="/images/newtemplate.png" alt="Molla Logo" style="width: 10em;">
+                    </a>
+
+                    <nav class="main-nav">
+                        <ul class="menu sf-arrows">
+                            <li class="megamenu-container active">
+                                <a href="/" class="sf-with-ul">Home</a>
+                            </li>
+                            <li>
+                                <a href="" class="sf-with-ul">Shop</a>
+                               
+                            </li>
+                            <li>
+                                <a href="/productsList" class="sf-with-ul">Product</a>
+
+                               
+                            </li>
+                            <li>
+                                <a href="#" class="sf-with-ul">Pages</a>
+
+                               
+                            </li>
+                            <li>
+                                <a href="" class="sf-with-ul">Blog</a>
+
+                               
+                            </li>
+                            <li>
+                                <a href="" class="sf-with-ul">Elements</a>
+
+                            </li>
+                        </ul><!-- End .menu -->
+                    </nav><!-- End .main-nav -->
+                </div><!-- End .header-left -->
+
+                <div class="header-right">
+                    <div class="header-search">
+                        <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
+                        <form action="/searchSubmit" method="post">
+                            <div class="header-search-wrapper">
+                                <label for="q" class="sr-only">Search</label>
+                                <input type="search" class="form-control" name="q" id="q" placeholder="Search in..."
+                                    required>
+                            </div><!-- End .header-search-wrapper -->
+                        </form>
+                    </div><!-- End .header-search -->
+
+                    <div class="dropdown cart-dropdown">
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" data-display="static">
+                            <i class="icon-shopping-cart"></i>
+                            <span class="cart-count">{{cartCount}}</span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+
+
+                            <div class="dropdown-cart-action">
+                                <a href="/viewCart" class="btn btn-primary">View Cart</a>
+                                <a href="/placeOrder" class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                        class="icon-long-arrow-right"></i></a>
+                            </div><!-- End .dropdown-cart-total -->
+                        </div><!-- End .dropdown-menu -->
+                    </div><!-- End .cart-dropdown -->
+                </div><!-- End .header-right -->
+            </div><!-- End .container -->
+        </div><!-- End .header-middle -->
+    </header><!-- End .header -->
+
+    <!-- Plugins JS File -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/assets/js/superfish.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Main JS File -->
+    <script src="/assets/js/main.js"></script>
+</body>
+
+
+<!-- molla/index-2.html  22 Nov 2019 09:55:42 GMT -->
+
+</html>

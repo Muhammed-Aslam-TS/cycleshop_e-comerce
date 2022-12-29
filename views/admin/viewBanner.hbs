@@ -1,0 +1,51 @@
+
+<main class="main" id="main">
+    <section>
+
+
+        <div class="container ">
+
+
+            <div class="card-body">
+                <h5 class="card-title text-center"><u><b> Banners </b></u></h5>
+                <div class="row-2 col-md-2"> 
+                    <a href="/admin/addBanner" class="btn btn-primary" id="add">Add Banner</a>
+                </div>
+                <table class="table table-borderless datatable">
+                    <thead>
+
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Banner Image</th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{#each banner}}
+                        <tr>
+                           <td class="">{{incremented @ index}}</td>
+                            <td>{{this.bannerName}}</td>
+                            <td><img src="/bannerImages/{{this.Img}}" width="100px" height="50px" style="" alt=""
+                                    srcset="">
+                            
+                                <a href="/admin/banerEdit/{{this._id}}/{{banner}}" class="btn btn-success">Edit</a>
+                                <a href="/admin/bannerDelete/{{this._id}}" class="btn btn-danger">Delete</a>
+                                {{!-- <button class="btn btn-success/{{this._id}}">Edit</button>
+                                <button class="btn btn-danger/{{this._id}}">Delete</button> --}}
+                            </td>
+
+
+                        </tr>
+                        {{/each}}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </section>
+</main>

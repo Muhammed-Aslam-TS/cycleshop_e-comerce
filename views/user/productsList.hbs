@@ -1,0 +1,364 @@
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('/userassets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">Cycles<span>Shop</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">List</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="toolbox">
+                        <div class="toolbox-left">
+                            <div class="toolbox-info">
+                                Showing <span>9 of 56</span> Products
+                            </div><!-- End .toolbox-info -->
+                        </div><!-- End .toolbox-left -->
+
+                        <div class="toolbox-right">
+                            <div class="toolbox-sort">
+                                <label for="sortby">Sort by:</label>
+                                <div class="select-custom">
+                                    <select name="sortby" id="sortby" class="form-control">
+                                        <option value="popularity" selected="selected">Most Popular</option>
+                                        <option value="rating">Most Rated</option>
+                                        <option value="date">Date</option>
+                                    </select>
+                                </div>
+                            </div><!-- End .toolbox-sort -->
+                            <div class="toolbox-layout">
+                                <a href="category-list.html" class="btn-layout active">
+                                    <svg width="16" height="10">
+                                        <rect x="0" y="0" width="4" height="4" />
+                                        <rect x="6" y="0" width="10" height="4" />
+                                        <rect x="0" y="6" width="4" height="4" />
+                                        <rect x="6" y="6" width="10" height="4" />
+                                    </svg>
+                                </a>
+
+                                <a href="category-2cols.html" class="btn-layout">
+                                    <svg width="10" height="10">
+                                        <rect x="0" y="0" width="4" height="4" />
+                                        <rect x="6" y="0" width="4" height="4" />
+                                        <rect x="0" y="6" width="4" height="4" />
+                                        <rect x="6" y="6" width="4" height="4" />
+                                    </svg>
+                                </a>
+
+                                <a href="category.html" class="btn-layout">
+                                    <svg width="16" height="10">
+                                        <rect x="0" y="0" width="4" height="4" />
+                                        <rect x="6" y="0" width="4" height="4" />
+                                        <rect x="12" y="0" width="4" height="4" />
+                                        <rect x="0" y="6" width="4" height="4" />
+                                        <rect x="6" y="6" width="4" height="4" />
+                                        <rect x="12" y="6" width="4" height="4" />
+                                    </svg>
+                                </a>
+
+                                <a href="category-4cols.html" class="btn-layout">
+                                    <svg width="22" height="10">
+                                        <rect x="0" y="0" width="4" height="4" />
+                                        <rect x="6" y="0" width="4" height="4" />
+                                        <rect x="12" y="0" width="4" height="4" />
+                                        <rect x="18" y="0" width="4" height="4" />
+                                        <rect x="0" y="6" width="4" height="4" />
+                                        <rect x="6" y="6" width="4" height="4" />
+                                        <rect x="12" y="6" width="4" height="4" />
+                                        <rect x="18" y="6" width="4" height="4" />
+                                    </svg>
+                                </a>
+                            </div><!-- End .toolbox-layout -->
+                        </div><!-- End .toolbox-right -->
+                    </div><!-- End .toolbox -->
+
+
+                    <div class="products mb-3">
+                        {{#each pro}}
+                        <div class="product product-list">
+                            <div class="row">
+                                <div class="col-6 col-lg-3">
+                                    <figure class="product-media">
+                                        {{#if productOffer}}
+                                        <span class="product-label label-sale">{{this.productOffer}}% off</span>
+                                        {{else}}
+
+                                        {{/if}}
+                                        <a href="/product/{{this._id}}">
+                                            <img src="/productMulterImage/{{this.img.[0]}}" alt="Product image"
+                                                class="product-image">
+                                        </a>
+                                    </figure><!-- End .product-media -->
+                                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                                <div class="col-6 col-lg-3 order-lg-last">
+
+                                    <div class="product-list-action">
+
+                                        <div class="product-price">
+
+                                            <div>
+                                                {{#if productOffer}}
+                                                <span><strike class="text-danger">Price
+                                                        ₹:{{this.OldPrice}}</strike></span>
+                                                <br>
+                                                <span class="text-success">Offer ₹:{{this.Price}}</span>
+                                                {{else}}
+                                                <span class="text-danger">Price ₹:{{this.Price}}</span>
+                                                {{/if}}
+                                            </div>
+
+                                        </div><!-- End .product-price -->
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+
+                                                <div class="ratings-val" style="width: 20%;"></div>
+                                                <!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                            <span class="ratings-text">( 2 Reviews )</span>
+                                        </div><!-- End .rating-container -->
+
+                                        <div class="product-action">
+                                            {{#if this.Stock}}
+                                            <a href="#" class="btn-product btn-cart"
+                                                onclick="addToCart('{{this._id}}','{{this.Price}}')"><span>add to
+                                                    cart</span></a>
+                                            {{else}}
+                                            {{/if}}
+                                            {{!-- <a href="#" class="btn-product btn-compare"
+                                                title="Compare"><span>compare</span></a> --}}
+
+                                        </div><!-- End .product-action -->
+
+
+                                    </div><!-- End .product-list-action -->
+                                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                                <div class="col-lg-6">
+                                    <div class="product-body product-action-inner">
+                                        <a href="#" class="btn-product-icon btn-wishlist"
+                                            onclick="addToWishList('{{this._id}}')"><span>add to wishlist</span></a>
+                                        <div class="product-cat">
+                                            <a href="#">{{this.Name}}</a>
+                                        </div><!-- End .product-cat -->
+
+                                        <!-- End .product-title -->
+
+                                        <div class="product-content">
+                                            <p>{{this.Description}}</p>
+                                        </div><!-- End .product-content -->
+
+                                        {{#if this.Stock}}
+                                        <p class=" text-success">Stock In</p>
+                                        {{else}}
+                                        <p class=" text-danger">Out Of Stock</p>
+                                        {{/if}}
+
+                                        <div class="product-nav product-nav-thumbs">
+                                            <a href="#" class="active">
+                                                <img src="/productMulterImage/{{this.img.[0]}}" alt="product desc">
+                                            </a>
+                                            <a href="#">
+                                                <img src="/productMulterImage/{{this.img.[0]}}" alt="product desc">
+                                            </a>
+
+                                            <a href="#">
+                                                <img src="/productMulterImage/{{this.img.[0]}}" alt="product desc">
+                                            </a>
+                                        </div><!-- End .product-nav -->
+                                    </div><!-- End .product-body -->
+                                </div><!-- End .col-lg-6 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .product -->
+                        {{/each}}
+
+                    </div><!-- End .products -->
+
+
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1"
+                                    aria-disabled="true">
+                                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+                                </a>
+                            </li>
+                            {{#for 0 page.pages 1}}
+                            <li class="page-item active" aria-current="page"><a class="page-link"
+                                    href="/productsList/{{../category1}}?page={{inc this}}">{{ inc this}}</a></li>
+                            {{/for}}
+                            <li class="page-item-total">of 6</li>
+                            <li class="page-item">
+                                <a class="page-link page-link-next" href="#" aria-label="Next">
+                                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div><!-- End .col-lg-9 -->
+
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+
+
+
+</main><!-- End .main -->
+
+<footer class="footer footer-dark">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget widget-about">
+                        <img src="/images/New LOGO wihgt.png" class="footer-logo" alt="Footer Logo" width="105"
+                            height="25">
+
+                        <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
+                            magna eros eu erat. </p>
+
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=140235673279940&kid_directed_site=0&app_id=140235673279940&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv9.0%2Fdialog%2Foauth%3Fapp_id%3D140235673279940%26auth_type%26cbt%3D1670995938306%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df2fc7543803f0fc%2526domain%253Dmy.freenom.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmy.freenom.com%25252Ff3f95d945b07404%2526relation%253Dopener%26client_id%3D140235673279940%26config_id%26display%3Dpopup%26domain%3Dmy.freenom.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fmy.freenom.com%252Fsociallogin.php%26force_confirmation%3Dfalse%26id%3Dfbc4b8d6d322bc%26locale%3Den_US%26logger_id%3D2d511066-0c54-4ebe-8620-460b152ab2cf%26messenger_page_id%26origin%3D1%26plugin_prepare%3Dtrue%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df27ec427004051%2526domain%253Dmy.freenom.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmy.freenom.com%25252Ff3f95d945b07404%2526relation%253Dopener.parent%2526frame%253Dfbc4b8d6d322bc%26ref%3DLoginButton%26reset_messenger_state%3Dfalse%26response_type%3Dsigned_request%252Ctoken%252Cgraph_domain%26scope%26sdk%3Djoey%26size%3D%257B%2522width%2522%253A600%252C%2522height%2522%253A679%257D%26url%3Ddialog%252Foauth%26version%3Dv9.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df27ec427004051%26domain%3Dmy.freenom.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fmy.freenom.com%252Ff3f95d945b07404%26relation%3Dopener.parent%26frame%3Dfbc4b8d6d322bc%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=popup&locale=en_GB&pl_dbl=0"
+                                class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                            <a href="https://twitter.com/" class="social-icon" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a>
+                            <a href="https://www.instagram.com/accounts/login/" class="social-icon" title="Instagram"
+                                target="_blank"><i class="icon-instagram"></i></a>
+                            <a href="https://www.youtube.com/watch?v=0K4F9UEdy9o" class="social-icon" title="Youtube"
+                                target="_blank"><i class="icon-youtube"></i></a>
+                            <a href="https://in.pinterest.com/" class="social-icon" title="Pinterest" target="_blank"><i
+                                    class="icon-pinterest"></i></a>
+                        </div><!-- End .soial-icons -->
+                    </div><!-- End .widget about-widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="about.html">About Cycle</a></li>
+                            <li><a href="#">How to shop on Cycle</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="/Login">Log in</a></li>
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Money-back guarantee!</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Terms and conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="/register">Sign In</a></li>
+                            <li><a href="/viewCart">View Cart</a></li>
+                            <li><a href="/wishlist">My Wishlist</a></li>
+                            <li><a href="/trackOrder">Track My Order</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .footer-middle -->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="footer-copyright">Copyright © 2022 Cycle Shop. All Rights Reserved.</p>
+            <!-- End .footer-copyright -->
+            <figure class="footer-payments">
+                <img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+            </figure><!-- End .footer-payments -->
+        </div><!-- End .container -->
+    </div><!-- End .footer-bottom -->
+</footer><!-- End .footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function addToCart(productId) {
+        $.ajax({
+            url: '/addToCart/' + productId,
+            method: 'get',
+            success: (response) => {
+                if (response.status) {
+
+                    let count = $('#cartCount').html()
+                    count = parseInt(count) +
+                        $("#cartCount").html(count)
+
+                    alert('add one')
+                    location.reload()
+                }
+
+            }
+
+        })
+    }
+</script>
+
+<script>
+    function addToWishList(productId) {
+        $.ajax({
+            url: '/addToWishList/' + productId,
+            method: 'get',
+            success: (response) => {
+                if (response.status) {
+                    alert('add one')
+                    location.reload()
+                    // let count = $('#cartCount').html()
+                    //count = parseInt(count) +
+                    //  $("#cartCount").html(count)
+
+                    swal({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                    }).then(() => {
+
+                    })
+                }
+
+            }
+
+        })
+    }
+</script>

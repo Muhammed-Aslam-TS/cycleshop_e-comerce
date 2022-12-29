@@ -1,0 +1,50 @@
+<main class="main" id="main">
+    <section>
+        <div class="row g-3">
+            <div class="col-lg-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Couppen</h5>
+
+                        <!-- General Form Elements -->
+                        <form action="/admin/addCouppen" method="post">
+                            <div class="row mb-3">
+                                <label for="inputText" class="form-label">Couppen Code</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="CouppenCode" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="form-label">Couppen %</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="CouppenP" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-10">
+                                    <button onclick="hello()" class="btn btn-primary" type="submit">Submit Form
+                                    </button>
+                                </div>
+                            </div>
+                        </form><!-- End General Form Elements -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    function hello() {
+        Swal.fire(
+            'Coupon Aded',
+            'God job',
+            'success'
+        ).then(() => {
+            
+        })
+    }
+</script>

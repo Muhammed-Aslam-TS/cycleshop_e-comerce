@@ -1,0 +1,40 @@
+<main class="main" id="main">
+  <section>
+
+
+    <div class="container ">
+
+
+      <div class="card-body">
+        <h1 class="text-center">Product Detils</h1>
+
+        <table class="table table-borderless datatable">
+
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Coupon Code</th>
+              <th scope="col">Coupon Percentage</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {{#each coupon}}
+            <tr>
+              <th scope="row">{{incremented @index}}</th>
+              <td>{{this.CouppenCode}}</td>
+              <td>{{this.CouppenP}}</td>
+  
+              
+            </tr>
+            {{/each}}
+
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </section>
+</main>

@@ -1,0 +1,74 @@
+
+
+  <div class="container p-5 mt-5">
+
+
+    <div class="card-body">
+      <h5 class="card-title"><u><b> Order Detils </b></u></h5>
+
+      <table class="table table-borderless datatable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Email</th>
+            <th scope="col">Price</th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <th scope="row">{{@inddex}}</th>
+            <td>{{this.date}}</td>
+            <td>{{this.deliveryDetils.Email}}</td>
+            <td>{{this.totalPrice}}</td>
+          </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    function orderCancel(orderId, cancel) {
+
+      $.ajax({
+        url: '/orderCancle',
+        data: {
+          user: orderId,
+          status: cancel,
+
+        },
+        method: 'post',
+        success: (response) => {
+          if (response.status) {
+            location.reload()
+            alert('are you ok ?')
+          }
+
+        }
+      })
+    }
+
+  </script>

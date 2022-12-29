@@ -1,0 +1,155 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+          alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+        <form action="/register" method="post" id="submit-form">
+          <!-- Name input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form1Example13">Name</label>
+            <input type="text" id="contact-name" onkeyup="validatename()" name="Name"
+              class="form-control form-control-lg" />
+            <p id="name-error" class="text-danger"></p>
+          </div>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form1Example13">Email address</label>
+            <input type="email" id="contact-email" onkeyup="validateEmail()" name="Email"
+              class="form-control form-control-lg" />
+            <p id="email-error" class="text-danger"></p>
+
+          </div>
+          <!-- Phone input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form1Example13">Phone number</label>
+            <input type="tel" id="contact-phone" onkeyup="validatePhone()" name="Phone"
+              class="form-control form-control-lg" />
+            <p id="phone-error" class="text-danger"></p>
+
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form1Example23">Password</label>
+            <input type="password" id="contact-password" onkeyup="validatePassword()" name="Password"
+              class="form-control form-control-lg" />
+            <p id="password-error" class="text-danger"></p>
+
+          </div>
+          <!-- Re Enter Password input -->
+      
+          <!-- Passworeffrelrd input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form1Example23">Referral Code</label>
+            <input type="text" id="contact-referral" name="Referral" class="form-control form-control-lg"
+              placeholder="Optional" />
+            <p id="password-error" class="text-danger"></p>
+
+          </div>
+          <!-- Re Enter reffrel input -->
+
+            <input type="text" id="" name="userReferral" class="form-control form-control-lg" hidden/>
+
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="return validateform()">Submit</button>
+          {{!-- <a type="submit" class="btn btn-primary btn-lg btn-block">Register</a> --}}
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+{{!-- validation --}}
+<script>
+  var nameError = document.getElementById('name-error');
+  var emailError = document.getElementById('email-error')
+  var phoneError = document.getElementById('phone-error')
+  var passwordError = document.getElementById('password-error')
+
+
+  function validatename() {
+    let name = document.getElementById('contact-name').value
+    if (name==" ") {
+      nameError.innerHTML = 'Name is required';
+      return false
+    } 
+    else {
+      nameError.innerHTML = ''
+      return true
+    }
+  }
+  //name end-------------------------
+
+
+  function validateEmail() {
+    var email = document.getElementById('contact-email').value;
+    if (email.length == 0 || email.length == '') {
+      emailError.innerHTML = 'Email is required';
+      return false;
+    }
+    if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+      emailError.innerHTML = 'Enter a valid email';
+      return false;
+    } else {
+      emailError.innerHTML = ''
+      return true
+    }
+  }
+  //email end
+
+  function validatePhone() {
+    var phone = document.getElementById('contact-phone').value
+    if (phone.length == 0 || phone.length == '') {
+      phoneError.innerHTML = 'Phone is required'
+      return false
+    }
+    if (phone.length !== 10) {
+      phoneError.innerHTML = 'Phone shold be 10 digits'
+      return false
+    }
+    if (!phone.match(/^[0-9]{10}$/ || /^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+      phoneError.innerHTML = 'Only digits'
+    } else {
+      phoneError.innerHTML = ''
+      return true
+    }
+  }
+  //phone ned
+
+  function validatePassword() {
+    var password = document.getElementById('contact-password')
+    if (password.length == '') {
+      passwordError.innerHTML = 'Password is required'
+      return false
+    }
+    if (password.length < 8) {
+      passwordError.innerHTML = 'Atlist 8 digit'
+      return false
+    } else {
+      passwordError.innerHTML = ''
+      return true
+    }
+  }
+
+  //end password
+
+  function validateform() {
+    if (validatename() && validateEmail() && validatePhone() && validatePassword()) {
+      return true
+    } else {
+      validatename()
+      validateEmail()
+      validatePhone()
+      validatePassword()
+      return false
+    }
+  }
+</script>

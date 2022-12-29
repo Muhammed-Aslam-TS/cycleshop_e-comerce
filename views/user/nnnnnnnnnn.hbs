@@ -1,0 +1,81 @@
+ <div class="row">
+                {{#each products}}
+                <div class="col-3 col-md-3 col-lg-3">
+                    <div class="product text-center">
+                        <figure class="product-media">
+                            {{#if productOffer}}
+                            <span class="product-label label-sale">{{this.productOffer}}% off</span>
+                            {{else}}
+
+                            {{/if}}
+                            <a href="product.html">
+                                <img src="/productMulterImage/{{this.img.[0]}}" alt="Product image"
+                                    class="product-image">
+                            </a>
+
+                            <div class="product-action">
+                                <div>
+                                    {{#if this.Stock}}
+                                <p class=" text-success" style="margin-left: 40%;">Stock In</p>
+                                {{else}}
+                                <p class=" text-danger" style="margin-left: 40%;">Out Of Stock</p>
+                                {{/if}}
+                                </div>
+                                <a onclick="addCart('{{this._id}}')" class="btn-product btn-cart"><span>add to
+                                        cart</span></a>
+                                <a href="#" class="btn-product btn-quickview" title="Quick view"><span>quick
+                                        view</span></a>
+                                <a href="#" class="btn-product btn-compare" title="Compare"><span>compare</span></a>
+
+                            </div><!-- End .product-action -->
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <div class="product-cat">
+                                <a href="#">{{this.addCategory}}</a>
+                            </div><!-- End .product-cat -->
+                            <h3 class="product-title"><a href="product.html">Aliquam tincidunt mauris</a></h3>
+                            <!-- End .product-title -->
+                            <div class="product-price">
+
+                                {{#if productOffer}}
+                                <span><strike class="text-danger">Price ₹:{{this.OldPrice}}</strike></span> <br>
+                                <span class="text-success">Offer ₹:{{this.Price}}</span>
+                                {{else}}
+                                <span class="text-danger">Price ₹:{{this.Price}}</span>
+                                {{/if}}
+
+                            </div><!-- End .product-price -->
+
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
+                                </div><!-- End .ratings -->
+                                <span class="ratings-text">( 4 Reviews )</span>
+                            </div><!-- End .rating-container -->
+
+                            <div class="product-nav product-nav-thumbs">
+                                <a href="#" class="active">
+                                    <img src="/productMulterImage/{{this.img.[0]}}" alt="product desc">
+                                </a>
+                                <a href="#">
+                                    <img src="/productMulterImage/{{this.img.[1]}}" alt="product desc">
+                                </a>
+
+                                <a href="#">
+                                    <img src="/productMulterImage/{{this.img.[2]}}" alt="product desc">
+                                </a>
+                            </div><!-- End .product-nav -->
+
+                        </div><!-- End .product-body -->
+
+                    </div><!-- End .product -->
+                    <br><br>
+                </div><!-- End .col-sm-6 col-lg-4 -->
+
+                {{/each}}
+
+                <img id="popup22" src="/productMulterImage/{{this.img.[0]}}" alt="Product image" class="product-image">
+
+
+            </div><!-- End .row -->

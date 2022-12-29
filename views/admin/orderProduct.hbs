@@ -1,0 +1,134 @@
+<main class="main" id="main">
+
+
+
+
+    <link rel="stylesheet" href="/userAssets/css/bootstrap.min.css">
+    <!-- Main CSS File -->
+    <!-- CSS only -->
+    <link rel="stylesheet" href="/userAssets/css/style.css">
+    <link rel="stylesheet" href="/stylesheets/progressBar.css">
+
+    <body style="background-color: rgb(228, 246, 251);">
+        <div class="page-header text-center" style="background-image: url('/userAssets/images/page-header-bg.jpg')">
+            <div class="container">
+                <h1 class="page-title"> Ordered Products<span></span></h1>
+            </div><!-- End .container -->
+        </div>
+        <div class="container">
+            {{#each products}}
+            <div class="row">
+                <div class="card col-md-12 mb-5 mt-4">
+                    <div class="card-body rounded">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="mt-1">
+                                    <img class="rounded" src="/productMulterImage/{{this.product.img.[0]}}" alt=""
+                                        style="height: 180px;">
+                                </div>
+                                <small>{{this.product._id}}</small>
+                            </div>
+                            <div class="col-md-3">
+                                <h5 class="mt-3">{{this.product.Name}}</h5>
+                                <h6>{{this.product.addCategory}}</h6>
+                                <b>{{this.product.Description}}</b><br>
+                            </div>
+                            <div class="col-md-3">
+                                <h6 class="mt-5">Quantity:&nbsp;{{this.quantity}}</h6>
+                                <input type="text" name="" id="quantityIn" value="{{this.quantity}}" hidden>
+                                {{#if this.product.offerPercentage}}
+                                <span>
+                                    <s>₹ {{this.product.oldPrice}}</s>
+                                    <h5 class="">₹ <span class="text-danger">{{this.product.Price}}</span></h5>
+                                </span>
+                                {{else}}
+                                <h5 class="mt-1">₹ <span class="text-danger">{{this.product.Price}}</span></h5>
+                                {{/if}}
+                                <B>TRACK ORDER</B>
+                                <h6 class="text-danger">{{this.trackorder}}</h6>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="p-5 m-5">
+                                    <!-- Example single danger button -->
+                                    <div class="dropdown">
+                                        <select class="btn btn-dark" name="" id="{{this._id}}"
+                                            onchange="changeStatus('{{this._id}}','{{this.product._id}}')">
+                                            <option value="{{this.status}}">{{this.trackorder}} </option>
+                                            <option value="Dispatched">Dispatched</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="OutForDelivery">Out for Delivery</option>
+                                            <option value="Delivered">Delivered</option>
+                                            <option value="Canceled">Cancel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {{!-- {{#if (isDelivered this.trackorder)}}
+                            {{#if (isCanceled this.trackorder)}}
+                            {{#if (isOrderConfirmed this.trackorder)}}
+                            {{#if (isOutForDelivary this.trackorder)}} --}}
+                   
+                            <a class="btn btn-success align-items-center" id="return"
+                                onclick="orderReturn('{{this._id}}','{{this.product._id}}','{{this.userId}}')">
+                                Return Aprooved ?
+                            </a>
+                        
+
+                        </div>
+
+                    </div>
+
+                </div>
+                {{/each}}
+            </div>
+</main>
+
+
+
+
+
+<script>
+    function changeStatus(orderId, proId) {
+        datas = document.getElementById(orderId).value
+        $.ajax({
+            url: '/admin/update-status',
+            method: 'post',
+            data: {
+                orderId: orderId,
+                proId: proId,
+                status: datas
+            },
+            success: (response) => {
+                alert(response.status)
+                location.reload()
+
+            }
+
+
+        })
+    }
+</script>
+
+
+<script>
+    function orderReturn(orderId, proId, userId) {
+        datas = document.getElementById(orderId).value
+        $.ajax({
+            url: '/admin/returnStatus',
+            method: 'post',
+            data: {
+                orderId: orderId,
+                proId: proId,
+                userId: userId,
+                status: datas
+            },
+            success: (response) => {
+                alert(response.status)
+                location.reload()
+
+            }
+
+
+        })
+    }
+</script>

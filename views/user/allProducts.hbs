@@ -1,0 +1,57 @@
+
+<main class="main" id="main">
+    <section>
+
+<div><h1>All Products</h1></div>
+
+        <div class="row">
+            <div class="col-md-3 offset-xl-3">
+                <div class="row">
+
+                    {{#each products}}
+                    <div class="col-6">
+                        <div class="product product-4">
+                            <figure class="product-media">
+                                <a href="/VewieProducts/{{this._id}}">
+                                    <img src="/productMulterImage/{{this.img.[0]}}" alt="Product image" srcset=""
+                                        class="product-image">
+                                </a>
+
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to
+                                            wishlist</span></a>
+                                    <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
+                                        title="Quick view"><span>Quick view</span></a>
+                                    <a href="#" class="btn-product-icon btn-compare"
+                                        title="Compare"><span>Compare</span></a>
+                                </div><!-- End .product-action -->
+
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                </div><!-- End .product-action -->
+                            </figure><!-- End .product-media -->
+
+                            <div class="product-body">
+                                <h3 class="product-title"><a href="product.html">{{this.Name}}</a></h3>
+                                <!-- End .product-title -->
+                                <div class="product-price">
+                                    ${{this.Price}}
+                                </div><!-- End .product-price -->
+
+                                <div class="product-nav product-nav-dots">
+                                    <a href="#" class="active" style="background: #917f4d;"><span class="sr-only">Color
+                                            name</span></a>
+                                    <a href="#" style="background: #c55858;"><span class="sr-only">Color name</span></a>
+                                </div><!-- End .product-nav -->
+                            </div><!-- End .product-body -->
+                        </div><!-- End .product -->
+                    </div><!-- End .col-sm-6 -->
+                    {{/each}}
+
+                </div><!-- End .row -->
+            </div><!-- End .col-lg-8 offset-lg-2 -->
+        </div><!-- End .row -->
+    </section>
+</main>
+
+    

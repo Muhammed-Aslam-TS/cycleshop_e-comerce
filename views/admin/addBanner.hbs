@@ -1,0 +1,58 @@
+<main class="main" id="main">
+    <section>
+
+        <div class="row g-3">
+            <div class="col-lg-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Banner</h5>
+
+                        <!-- General Form Elements -->
+                        <form action="/admin/addBanner" method="post" enctype="multipart/form-data" >
+                            <div class="row mb-3">
+                                <label for="inputText" class="form-label">Bnner Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bannerName" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="inputNumber" class="form-label">File Upload</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" name="Images" type="file" id="formFile"
+                                        multiple="multiple">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-10">
+                                    <button onclick="hello()" class="btn btn-primary" type="submit">Submit Form </button>
+
+                                </div>
+                            </div>
+
+                        </form><!-- End General Form Elements -->
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+</main>
+<script>
+  function hello() {
+    Swal.fire(
+      'Banner aded',
+      'God job',
+      'success'
+    ).then(() => {
+
+    })
+  }
+</script>

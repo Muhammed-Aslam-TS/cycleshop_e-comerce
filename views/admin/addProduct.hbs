@@ -1,0 +1,129 @@
+<main class="main" id="main">
+    <section>
+
+        <div class="container">
+            <b>
+                <H1 class="fw-bold text-center">Add New Products</H1>
+            </b>
+            <form action="/admin/addProduct" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Brand Name</label>
+                    <input type="text" class="form-control" name="Name" id="exampleInputName" onkeyup="validatename()"
+                        placeholder="Name">
+                    <p id="Name-error" class="text-danger"></p>
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputPrice">Stock</label>
+                    <input type="text" class="form-control" name="Stock" id="exampleInputStock"
+                        onkeyup="validateStock()" placeholder="Stock">
+                    <p id="Stock-error" class="text-danger"></p>
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputPrice">Price</label>
+                    <input type="number" class="form-control" name="Price" id="exampleInputPrice"
+                        onkeyup="validatePrice()" placeholder="Price">
+                    <p id="Price-error" class="text-danger"></p>
+                </div><br>
+                {{!-- <div class="form-group">
+                    <label for="exampleInputPrice">Offer Price (%)</label>
+                    <input type="text" class="form-control" name="ProductOffer" id="exampleInputOffer"
+                        placeholder="Offer Price">
+                </div><br> --}}
+                <div>
+                    <label for="floatingSelect">Category</label>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="CategoryName" name="addCategory">
+                            {{#each categoryName}}
+                            <option value={{this.CategoryName}}>{{this.CategoryName}}</option>
+                            <option value="1"></option>
+                            {{/each}}
+                            <p id="Category-error" class="text-danger"></p>
+                        </select>
+
+                    </div><br>
+                </div>
+                <div class="form-group">
+                    <label for="">Description</label>
+                    <input type="text" class="form-control" name="Description" id="exampleInputDescription"
+                        aria-describedby="DescriptionHelp" placeholder="Description" required>
+                    <p id="Description-error" class="text-danger"></p>
+                </div><br>
+                <div class="form-group">
+                    <label for="">Image</label>
+                    <input type="file" class="form-control" name="Image" id="exampleInputfile" multiple="multiple"
+                        aria-describedby="fileHelp" placeholder="" required>
+                    <p id="Image-error" class="text-danger"></p>
+                </div><br>
+
+                <button type="submit" class="btn btn-success" onclick="return validateform()">Submit</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+
+
+<script>
+
+    var nameError = document.getElementById('Name-error')
+    var stockError = document.getElementById('Stock-error')
+    var PriceError = document.getElementById('Price-error');
+    var DescriptionError = document.getElementById('Description-error')
+    var ImageError = document.getElementById('Image-error')
+
+
+    function validatename() {
+        let name = document.getElementById('exampleInputName').value
+        if (name.length == "" || name.length == 0) {
+            nameError.innerHTML = 'Name is required';
+            return false
+
+        } if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+            nameError.innerHTML = 'Write full name';
+            return false;
+        }
+        else {
+            nameError.innerHTML = ''
+            return true
+        }
+    }
+
+
+    function validateStock() {
+
+        var stock = document.getElementById('exampleInputStock').value
+        if (stock.length == 0 || stock.length == '') {
+            stockError.innerHTML = 'Stock is required'
+            return false
+        } else {
+            stockError.innerHTML = ''
+            return true
+        }
+    }
+
+    function validatePrice() {
+        var price = document.getElementById('exampleInputPrice').value
+        if (price.length == 0 || price.length == '') {
+            PriceError.innerHTML = 'price is required'
+        } else {
+            PriceError.innerHTML = ''
+            return true
+        }
+    }
+
+
+
+
+
+    function validateform() {
+        if (validatename() && validateStock() && validatePrice() ) {
+            return true
+        } else {
+            validatename()
+            validateStock()
+            validatePrice()
+            return false
+        }
+    }
+</script>

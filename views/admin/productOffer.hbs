@@ -1,0 +1,68 @@
+<main class="main" id="main">
+    <div class="container p-5 mt-5">
+        <div class="card-body">
+            <h5 class="card-title"><u><b> Product Offer</b></u></h5>
+            <table class="table table-borderless datatable">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Brand Name</th>
+                        <th scope="col"> Price</th>
+                        <th scope="col">Old Price</th>
+                        <th scope="col">Add Offer (%)</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                    <tr>
+                        <th scope="row">{{incremented @ index}}</th>
+                        <td><img src="/productMulterImage/{{this.img.[0]}}" alt="" srcset="" width="75px" width="75px">
+                        </td>
+                        <td>{{this.Name}}</td>
+                        <td>{{this.Price}}</td>
+                        <td>{{this.OldPrice}}</td>
+
+
+                        <td>
+                            <form action="/admin/productOffer/{{this._id}}" method="post">
+                                <input type="number" placeholder="{{this.productOffer}}%" name="productoffer">
+
+                                {{#if productOffer}}
+                                <button type="submit" class="btn btn-danger">delete Offer</button>
+                                {{else}}
+                                <button  type="submit" class="btn btn-success" onclick="hello()">Add Offer</button>
+                                {{/if}}
+
+                            </form>
+                        </td>
+
+                        <td>
+                            {{!-- <a href="/productOffer/{{this._id}}" class="btn btn-success" id="addOffer"
+                                type="submit">
+                                Apply</a> --}}
+
+
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+
+
+<script>
+  function hello() {
+    Swal.fire(
+      'Offer aded',
+      'God job',
+      'success'
+    ).then(() => {
+
+    })
+  }
+</script>

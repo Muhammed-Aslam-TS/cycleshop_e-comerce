@@ -1,0 +1,267 @@
+<main class="main" id="main">
+    <section>
+        <form action="/addAddresses" method="post">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>First Name * <span id="FirstnameErr" class="text-danger"></span></label>
+                            <input type="text" class="form-control" id="Firstname" name="name"
+                                onkeydown="validatfname()">
+
+                        </div><!-- End .col-sm-6 -->
+
+                        <div class="col-sm-6">
+                            <label>Last Name * <span id="LastnameErr" class="text-danger"></apan></label>
+                            <input type="text" class="form-control" id="Lastname" name="Lastname"
+                                onkeyup="validateLname()">
+
+                        </div><!-- End .col-sm-6 -->
+                    </div><!-- End .row -->
+
+                    <label>Street address * <span id="StreetaddressErr" class="text-danger"></span></label>
+
+                    <input type="text" class="form-control" placeholder="House number and Street name"
+                        id="Streetaddress" name="Streetaddress" onkeyup="validateSteet()">
+
+                    <span id="textErr" class="text-danger"></span>
+                    <input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." id="text"
+                        name="text" onkeyup="validateAppart()">
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Town / City * <span id="TownErr" class="text-danger"></span></label>
+
+                            <input type="text" class="form-control" id="Town" name="Town" onkeyup="validateTown()">
+
+                        </div><!-- End .col-sm-6 -->
+
+                        <div class="col-sm-6">
+                            <label>State / County *<span id="StateErr" class="text-danger"></span></label>
+
+                            <input type="text" class="form-control" id="State" name="State" onkeyup="validatecontry()">
+
+                            {{!-- <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+                            --}}
+                        </div><!-- End .col-sm-6 -->
+                    </div><!-- End .row -->
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Postcode / ZIP * <span id="PostcodeErr" class="text-danger"></apan></label>
+
+                            <input type="text" class="form-control" id="Postcode" name="Postcode"
+                                onkeyup="validatePin()">
+
+                        </div><!-- End .col-sm-6 -->
+
+                        <div class="col-sm-6">
+                            <label>Phone * <span id="PhoneErr" class="text-danger"></span></label>
+
+                            <input type="tel" class="form-control" id="Phone" name="Phone" onkeyup="validateMobil()">
+
+                        </div><!-- End .col-sm-6 -->
+                    </div><!-- End .row -->
+
+                    <label>Email address * <span id="EmailErr" class="text-danger"></span></label>
+
+                    <input type="email" class="form-control" id="Email" name="Email" onkeyup="validateemaile()">
+
+                    <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+                </div><!-- End .col-lg-9 -->
+
+                <div>
+                    <button type="submit" class="btn btn-outline-primary-2"
+                        onclick="return validateAddressform()">Submit</button>
+                    {{!-- <button type="submit" class="btn btn-outline-primary-2" onclick="return validateform()">New
+                        Address</button> --}}
+                    {{!-- <a class="btn btn-outline-primary-2" type="submit">Save Address</a> --}}
+                </div>
+        </form>
+    </section>
+</main>
+
+
+
+
+<script>
+    var nameError = document.getElementById('FirstnameErr');
+    var lnameError = document.getElementById('LastnameErr')
+    var streetError = document.getElementById('StreetaddressErr')
+    var textError = document.getElementById('textErr')
+
+    var townError = document.getElementById('TownErr');
+    var stateError = document.getElementById('StateErr')
+    var postError = document.getElementById('PostcodeErr')
+    var phoneError = document.getElementById('PhoneErr')
+    var emailError = document.getElementById('EmailErr')
+
+
+    function validatfname() {
+        let name = document.getElementById('Firstname').value
+        if (name.length == "" || name.length == 0) {
+            nameError.innerHTML = 'Name is required';
+
+            return false
+
+        }
+        else {
+            nameError.innerHTML = ''
+            return true
+        }
+    }
+    //name end-------------------------
+
+    //start sname.........................
+    function validateLname() {
+        let Sname = document.getElementById('Lastname').value
+        if (Sname.length == "" || Sname.length == 0) {
+            lnameError.innerHTML = 'L-Name is required';
+
+            return false
+
+        }
+        else {
+            lnameError.innerHTML = ''
+            return true
+        }
+    }
+
+    //end sname.......................
+
+    //start validateSteet........................
+    function validateSteet() {
+        let street = document.getElementById('Streetaddress').value
+        if (street.length == "" || street.length == 0) {
+            streetError.innerHTML = 'street is required';
+
+            return false
+        }
+        else {
+            streetError.innerHTML = ''
+            return true
+        }
+
+    }
+    //end validateAppart..........................
+
+    function validateAppart() {
+        let appart = document.getElementById('text').value
+        if (appart.length == "" || appart.length == 0) {
+            textError.innerHTML = 'appart is required';
+
+            return false
+        }
+        else {
+            textError.innerHTML = ''
+            return true
+        }
+
+    }
+    //end validateAppart..........................
+
+
+
+    //start validateTown..........................
+
+    function validateTown() {
+        let Town = document.getElementById('Town').value
+        if (Town.length == "" || Town.length == 0) {
+            townError.innerHTML = 'Town is required';
+
+            return false
+        }
+        else {
+            townError.innerHTML = ''
+            return true
+        }
+
+    }
+    //end validateTown..........................
+
+    //end validatecontry..........................
+
+    function validatecontry() {
+        let State = document.getElementById('State').value
+        if (State.length == "" || State.length == 0) {
+            stateError.innerHTML = 'State is required';
+
+            return false
+        }
+        else {
+            stateError.innerHTML = ''
+            return true
+        }
+
+    }
+    //end validatecontry..........................
+
+    //start validatePin..................................
+    function validatePin() {
+        var Postcode = document.getElementById('Postcode').value
+        if (Postcode.length == 0 || Postcode.length == '') {
+            postError.innerHTML = 'Postcode is required'
+            return false
+        } else {
+            postError.innerHTML = ''
+            return true
+        }
+    }
+    //phone validatePin....................................
+
+
+    function validateemaile() {
+        var email = document.getElementById('Email').value;
+        if (email.length == 0 || email.length == '') {
+            emailError.innerHTML = 'Email is required';
+            return false;
+        }
+        if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+            emailError.innerHTML = 'Enter a valid email';
+            return false;
+        } else {
+            emailError.innerHTML = ''
+            return true
+        }
+    }
+    //email end
+
+    function validateMobil() {
+        var phone = document.getElementById('Phone').value
+        if (phone.length == 0 || phone.length == '') {
+            phoneError.innerHTML = 'Phone is required'
+            return false
+        }
+        if (phone.length !== 10) {
+            phoneError.innerHTML = 'Phone shold be 10 digits'
+            return false
+        }
+        if (!phone.match(/^[0-9]{10}$/ || /^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+            phoneError.innerHTML = 'Only digits'
+        } else {
+            phoneError.innerHTML = ''
+            return true
+        }
+    }
+    //phone ned
+
+
+    function validateAddressform() {
+        if (validatfname() && validateLname() && validateSteet() && validateAppart() && validateTown() && validatecontry() && validatePin() && validateemaile() && validateMobil()) {
+            return true
+        } else {
+            validatfname()
+            validateLname()
+            validateSteet()
+            validateAppart()
+            validateTown()
+            validatecontry()
+            validatePin()
+            validateemaile()
+            validateMobil()
+            return false
+        }
+    }
+</script>

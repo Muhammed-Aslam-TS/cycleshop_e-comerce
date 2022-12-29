@@ -1,0 +1,42 @@
+<main class="main" id="main">
+
+
+    <div class="container p-5 mt-5">
+        <div class="card-body">
+            <h5 class="card-title"><u><b> Category Offer</b></u></h5>
+            <table class="table table-borderless datatable">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">methode</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Product</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                    <tr>
+                        <th scope="row">{{incremented @inddex}}</th>
+                        <td>{{this.date}}</td>
+                        <td>{{this.deliveryDetils.Email}}</td>
+                        <td>{{this.totalPrice}}</td>
+                        <td>{{this.paymentMethod}}</td>
+                        <td><span class="badge bg-success">{{this.status}}</span></td>
+                        <td>
+                            <a href="/viewOrderProducts/{{this._id}}">View</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary-2" id="cancle"
+                                onclick="orderCancel('{{this._id}}','cancel')">order
+                                cancel ?</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

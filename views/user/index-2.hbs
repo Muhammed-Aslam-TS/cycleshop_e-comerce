@@ -1,0 +1,841 @@
+<body>
+    <div class="intro-section bg-lighter pt-5 pb-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="intro-slider-container slider-container-ratio slider-container-1 mb-2 mb-lg-0">
+                        <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside"
+                            data-toggle="owl" data-owl-options='{
+                                        "nav": false, 
+                                        "responsive": {
+                                            "768": {
+                                                "nav": true
+                                            }
+                                        }
+                                    }'>
+                            <div class="intro-slide">
+                                <figure class="slide-image">
+                                    <picture>
+                                        <source media="(max-width: 480px)" srcset="/bannerImages/{{banner.[0].Img}}">
+                                        <img src="/bannerImages/{{banner.[0].Img}}" alt="Image Desc"
+                                            style="height: 500px;">
+                                    </picture>
+                                </figure><!-- End .slide-image -->
+
+
+                            </div><!-- End .intro-slide -->
+
+                            <div class="intro-slide">
+                                <figure class="slide-image">
+                                    <picture>
+                                        <source media="(max-width: 480px)" srcset="/bannerImages/{{banner.[1].Img}}">
+                                        <img src="/bannerImages/{{banner.[1].Img}}" alt="Image Desc">
+                                    </picture>
+                                </figure><!-- End .slide-image -->
+
+                            </div><!-- End .intro-slide -->
+
+                            <div class="intro-slide">
+                                <figure class="slide-image">
+                                    <picture>
+                                        <source media="(max-width: 480px)" srcset="/bannerImages/{{banner.[4].Img}}">
+                                        <img src="/bannerImages/{{banner.[4].Img}}" alt="Image Desc">
+                                    </picture>
+                                </figure><!-- End .slide-image -->9
+
+                            </div><!-- End .intro-slide -->
+                        </div><!-- End .intro-slider owl-carousel owl-simple -->
+
+                        <span class="slider-loader"></span><!-- End .slider-loader -->
+                    </div><!-- End .intro-slider-container -->
+                </div><!-- End .col-lg-8 -->
+                <div class="col-lg-4">
+                    <div class="intro-banners">
+                        <div class="row row-sm">
+                            <div class="col-md-6 col-lg-12">
+                                <div class="banner banner-display">
+                                    <a href="#">
+                                        <img src="/bannerImages/{{banner.[2].Img}}" alt="Banner">
+                                    </a>
+
+
+                                </div><!-- End .banner -->
+                            </div><!-- End .col-md-6 col-lg-12 -->
+
+                            <div class="col-md-6 col-lg-12">
+                                <div class="banner banner-display mb-0">
+                                    <a href="#">
+                                        <img src="/bannerImages/{{banner.[5].Img}}" alt="Banner">
+                                    </a>
+
+
+                                </div><!-- End .banner -->
+                            </div><!-- End .col-md-6 col-lg-12 -->
+                        </div><!-- End .row row-sm -->
+                    </div><!-- End .intro-banners -->
+                </div><!-- End .col-lg-4 -->
+            </div><!-- End .row -->
+
+            <div class="mb-6"></div><!-- End .mb-6 -->
+
+            <div class="owl-carousel owl-simple" data-toggle="owl" data-owl-options='{
+                            "nav": false, 
+                            "dots": false,
+                            "margin": 30,
+                            "loop": false,
+                            "responsive": {
+                                "0": {
+                                    "items":2
+                                },
+                                "420": {
+                                    "items":3
+                                },
+                                "600": {
+                                    "items":4
+                                },
+                                "900": {
+                                    "items":5
+                                },
+                                "1024": {
+                                    "items":6
+                                }
+                            }
+                        }'>
+                <a href="#" class="brand">
+                    <img src="assets/images/brands/1.png" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="assets/images/brands/2.png" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="assets/images/brands/3.png" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="assets/images/brands/4.png" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="assets/images/brands/5.png" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="assets/images/brands/6.png" alt="Brand Name">
+                </a>
+            </div><!-- End .owl-carousel -->
+        </div><!-- End .container -->
+    </div><!-- End .bg-lighter -->
+
+    <div class="mb-6"></div><!-- End .mb-6 -->
+
+    <div class="container">
+        <div class="heading heading-center mb-3">
+            <h2 class="title-lg">Trendy Products</h2><!-- End .title -->
+
+            <ul class="nav nav-pills justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="trendy-all-link" data-toggle="tab" href="#trendy-all-tab" role="tab"
+                        aria-controls="trendy-all-tab" aria-selected="true">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="trendy-fur-link" data-toggle="tab" href="#trendy-fur-tab" role="tab"
+                        aria-controls="trendy-fur-tab" aria-selected="false">Mens</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="trendy-decor-link" data-toggle="tab" href="#trendy-decor-tab" role="tab"
+                        aria-controls="trendy-decor-tab" aria-selected="false">Womens</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="trendy-light-link" data-toggle="tab" href="#trendy-light-tab" role="tab"
+                        aria-controls="trendy-light-tab" aria-selected="false">Kids</a>
+                </li>
+            </ul>
+        </div><!-- End .heading -->
+
+        <div class="tab-content tab-content-carousel">
+            <div class="tab-pane p-0 fade show active" id="trendy-all-tab" role="tabpanel"
+                aria-labelledby="trendy-all-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":2
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "992": {
+                                        "items":4
+                                    },
+                                    "1200": {
+                                        "items":4,
+                                        "nav": true,
+                                        "dots": false
+                                    }
+                                }
+                            }'>
+
+                    {{#each products}}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {{#if productOffer}}
+                            <span class="product-label label-sale">{{this.productOffer}}%</span>
+                            {{else}}
+                            <span class="product-label label-sale" hidden>{{this.productOffer}}%</span>
+                            {{/if}}
+                            <a href="/productZoom/{{this._id}}">
+
+                                <img src="/productMulterImage/{{this.img.[0]}}" alt="Product image"
+                                    class="product-image">
+                                <img src="/productMulterImage/{{this.img.[1]}}" alt="Product image"
+                                    class="product-image-hover">
+                            </a>
+
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist"
+                                    onclick="addToWishList('{{this._id}}')"><span>add to wishlist</span></a>
+                            </div><!-- End .product-action-vertical -->
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="product.html">{{this.Name}}</a></h3> <br>
+                            <!-- End .product-title -->
+
+                            <div class="product-price">
+                                {{#if productOffer}}
+                                <h5><strike class="text-danger">Price ₹:{{this.OldPrice}}</strike></h5> <br>
+                                <h5 class="text-success">Offer Price ₹:{{this.Price}}</h5>
+                                {{else}}
+                                <h5 class="text-danger">Price ₹:{{this.Price}}</h5>
+                                {{/if}}
+                            </div><!-- End .product-price -->
+
+                        </div><!-- End .product-body -->
+                        <div class="product-action">
+                            <a href="#" class="btn-product btn-cart"
+                                onclick="addToCart('{{this._id}}','{{this.Price}}')"><span>add to
+                                    cart</span></a>
+                        </div><!-- End .product-action -->
+                    </div><!-- End .product -->
+                    {{/each}}
+
+
+
+
+                </div><!-- End .owl-carousel -->
+            </div><!-- .End .tab-pane -->
+            <div class="tab-pane p-0 fade" id="trendy-fur-tab" role="tabpanel" aria-labelledby="trendy-fur-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":2
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "992": {
+                                        "items":4
+                                    },
+                                    "1200": {
+                                        "items":4,
+                                        "nav": true,
+                                        "dots": false
+                                    }
+                                }
+                            }'>
+                    {{#each mens}}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {{#if productOffer}}
+                            <span class="product-label label-sale">{{this.productOffer}}%</span>
+                            {{else}}
+                            <span class="product-label label-sale" hidden>{{this.productOffer}}%</span>
+                            {{/if}}
+                            <span class="product-label label-new">NEW</span>
+                            <a href="product.html">
+                                <img src="/productMulterImage/{{this.img.[0]}}" alt="Product image"
+                                    class="product-image">
+                                <img src="/productMulterImage/{{this.img.[1]}}" alt="Product image"
+                                    class="product-image-hover">
+                            </a>
+
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist"
+                                    onclick="addToWishList('{{this._id}}')"><span>add to wishlist</span></a>
+                            </div><!-- End .product-action-vertical -->
+
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="product.html">{{this.Name}}</a></h3>
+                            <!-- End .product-title -->
+                            <div class="product-price">
+                                {{#if productOffer}}
+                                <h5><strike class="text-danger">Price ₹:{{this.OldPrice}}</strike></h5> <br>
+                                <h5 class="text-success">Offer Price ₹:{{this.Price}}</h5>
+                                {{else}}
+                                <h5 class="text-danger">Price ₹:{{this.Price}}</h5>
+                                {{/if}}
+                            </div><!-- End .product-price -->
+                        </div><!-- End .product-body -->
+                        <div class="product-action">
+                            <a href="#" class="btn-product btn-cart"
+                                onclick="addToCart('{{this._id}}','{{this.Price}}')"><span>add to cart</span></a>
+                        </div><!-- End .product-action -->
+                    </div><!-- End .product -->
+                    {{/each}}
+
+                </div><!-- End .owl-carousel -->
+            </div><!-- .End .tab-pane -->
+            <div class="tab-pane p-0 fade" id="trendy-decor-tab" role="tabpanel" aria-labelledby="trendy-decor-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":2
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "992": {
+                                        "items":4
+                                    },
+                                    "1200": {
+                                        "items":4,
+                                        "nav": true,
+                                        "dots": false
+                                    }
+                                }
+                            }'>
+                    {{#each womens}}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {{#if productOffer}}
+                            <span class="product-label label-sale">{{this.productOffer}}%</span>
+                            {{else}}
+                            <span class="product-label label-sale" hidden>{{this.productOffer}}%</span>
+                            {{/if}}
+                            <a href="product.html">
+                                <img src="/productMulterImage/{{this.img.[0]}}" alt="Product image"
+                                    class="product-image">
+                                <img src="/productMulterImage/{{this.img.[1]}}" alt="Product image"
+                                    class="product-image-hover">
+                            </a>
+
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist"
+                                    onclick="addToWishList('{{this._id}}')"><span>add to wishlist</span></a>
+                            </div><!-- End .product-action-vertical -->
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="product.html">{{this.Name}}</a></h3>
+                            <!-- End .product-title -->
+                            <div class="product-price">
+                                {{#if productOffer}}
+                                <h5><strike class="text-danger">Price ₹:{{this.OldPrice}}</strike></h5> <br>
+                                <h5 class="text-success">Offer Price ₹:{{this.Price}}</h5>
+                                {{else}}
+                                <h5 class="text-danger">Price ₹:{{this.Price}}</h5>
+                                {{/if}}
+                            </div><!-- End .product-price -->
+                        </div><!-- End .product-body -->
+                        <div class="product-action">
+                            <a href="#" class="btn-product btn-cart"
+                                onclick="addToCart('{{this._id}}','{{this.Price}}')"><span>add to cart</span></a>
+                        </div><!-- End .product-action -->
+                    </div><!-- End .product -->
+                    {{/each}}
+
+                </div><!-- End .owl-carousel -->
+            </div><!-- .End .tab-pane -->
+            <div class="tab-pane p-0 fade" id="trendy-light-tab" role="tabpanel" aria-labelledby="trendy-light-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":2
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "992": {
+                                        "items":4
+                                    },
+                                    "1200": {
+                                        "items":4,
+                                        "nav": true,
+                                        "dots": false
+                                    }
+                                }
+                            }'>
+                    {{#each kids}}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {{#if productOffer}}
+                            <span class="product-label label-sale">{{this.productOffer}}%</span>
+                            {{else}}
+                            <span class="product-label label-sale" hidden>{{this.productOffer}}%</span>
+                            {{/if}}
+                            <a href="product.html">
+                                <img src="/productMulterImage/{{this.img.[0]}}" alt="Product image"
+                                    class="product-image">
+                                <img src="/productMulterImage/{{this.img.[1]}}" alt="Product image"
+                                    class="product-image-hover">
+                            </a>
+
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist"
+                                    onclick="addToWishList('{{this._id}}')"><span>add to wishlist</span></a>
+                            </div><!-- End .product-action-vertical -->
+                        </figure><!-- End .product-media -->
+
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="product.html">{{this.Name}}</a></h3>
+                            <!-- End .product-title -->
+                            <div class="product-price">
+
+                                {{#if productOffer}}
+                                <h5><strike class="text-danger">Price ₹:{{this.OldPrice}}</strike></h5> <br>
+                                <h5 class="text-success">Offer Price ₹:{{this.Price}}</h5>
+                                {{else}}
+                                <h5 class="text-danger">Price ₹:{{this.Price}}</h5>
+                                {{/if}}
+                            </div><!-- End .product-price -->
+
+                            <div class="product-nav product-nav-dots">
+                                <a href="#" class="active" style="background: #1f1e18;"><span class="sr-only">Color
+                                        name</span></a>
+                                <a href="#" style="background: #e8e8e8;"><span class="sr-only">Color name</span></a>
+                            </div><!-- End .product-nav -->
+                        </div><!-- End .product-body -->
+                        <div class="product-action">
+                            <a href="#" class="btn-product btn-cart"
+                                onclick="addToCart('{{this._id}}','{{this.Price}}')"><span>add to cart</span></a>
+                        </div><!-- End .product-action -->
+                    </div><!-- End .product -->
+                    {{/each}}
+
+                </div><!-- End .owl-carousel -->
+            </div><!-- .End .tab-pane -->
+        </div><!-- End .tab-content -->
+    </div><!-- End .container -->
+
+    <div class="container categories pt-6">
+        <h2 class="title-lg text-center mb-3">Shop by Categories</h2><!-- End .title-lg text-center -->
+
+        <div class="row">
+            <div class="col-6 col-lg-3">
+                <div class="banner banner-display banner-link-anim">
+                    <a href="">
+                        <img src="/images/2.jpg" alt="Banner">
+                    </a>
+
+                    <div class="banner-content banner-content-center">
+                        <h3 class="banner-title text-white"><a href="/productsList">All Products</a></h3><!-- End .banner-title -->
+                        <a href="/productsList" class="btn btn-outline-white banner-link">Shop Now<i
+                                class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-sm-6 col-lg-3 -->
+            <div class="col-6 col-lg-3 order-lg-last">
+                <div class="banner banner-display banner-link-anim">
+                    <a href="#">
+                        <img src="/images/3.jpg" alt="Banner">
+                    </a>
+
+                    <div class="banner-content banner-content-center">
+                        <h3 class="banner-title text-white"><a href="/kids">Kids</a></h3><!-- End .banner-title -->
+                        <a href="/kids" class="btn btn-outline-white banner-link">Shop Now<i
+                                class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-sm-6 col-lg-3 -->
+
+
+            <div class="col-6 col-lg-3">
+                <div class="banner banner-display banner-link-anim">
+                    <a href="">
+                        <img src="/images/3333333333333333.jpg" alt="Banner">
+                        
+                    </a>
+
+                    <div class="banner-content banner-content-center">
+                        <h3 class="banner-title text-white"><a href="/mens">Mens</a></h3><!-- End .banner-title -->
+                        <a href="/mens" class="btn btn-outline-white banner-link">Shop Now<i
+                                class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-sm-6 col-lg-3 -->
+
+            <div class="col-6 col-lg-3">
+                <div class="banner banner-display banner-link-anim">
+                    <a href="">
+                        <img src="/images/5.jpg" alt="Banner">
+                    </a>
+                    <div class="banner-content banner-content-center">
+                        <h3 class="banner-title text-white"><a href="/womens">Womens</a></h3>
+                        <!-- End .banner-title -->
+                        <a href="/womens" class="btn btn-outline-white banner-link">Shop Now<i
+                                class="icon-long-arrow-right"></i></a>
+                    </div><!-- End .banner-content -->
+                </div><!-- End .banner -->
+            </div><!-- End .col-sm-6 col-lg-3 -->
+
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+
+    <div class="mb-5"></div><!-- End .mb-6 -->
+
+
+
+    <div class="container">
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6">
+                <div class="icon-box icon-box-card text-center">
+                    <span class="icon-box-icon">
+                        <i class="icon-rocket"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h3 class="icon-box-title">Payment & Delivery</h3><!-- End .icon-box-title -->
+                        <p>Free shipping for orders over $50</p>
+                    </div><!-- End .icon-box-content -->
+                </div><!-- End .icon-box -->
+            </div><!-- End .col-lg-4 col-sm-6 -->
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="icon-box icon-box-card text-center">
+                    <span class="icon-box-icon">
+                        <i class="icon-rotate-left"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h3 class="icon-box-title">Return & Refund</h3><!-- End .icon-box-title -->
+                        <p>Free 100% money back guarantee</p>
+                    </div><!-- End .icon-box-content -->
+                </div><!-- End .icon-box -->
+            </div><!-- End .col-lg-4 col-sm-6 -->
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="icon-box icon-box-card text-center">
+                    <span class="icon-box-icon">
+                        <i class="icon-life-ring"></i>
+                    </span>
+                    <div class="icon-box-content">
+                        <h3 class="icon-box-title">Quality Support</h3><!-- End .icon-box-title -->
+                        <p>Alway online feedback 24/7</p>
+                    </div><!-- End .icon-box-content -->
+                </div><!-- End .icon-box -->
+            </div><!-- End .col-lg-4 col-sm-6 -->
+        </div><!-- End .row -->
+
+        <div class="mb-2"></div><!-- End .mb-2 -->
+    </div><!-- End .container -->
+    <div class="blog-posts pt-7 pb-7" style="background-color: #fafafa;">
+        <div class="container">
+            <h2 class="title-lg text-center mb-3 mb-md-4">From Our Blog</h2><!-- End .title-lg text-center -->
+
+            <div class="owl-carousel owl-simple carousel-with-shadow" data-toggle="owl" data-owl-options='{
+                            "nav": false, 
+                            "dots": true,
+                            "items": 3,
+                            "margin": 20,
+                            "loop": false,
+                            "responsive": {
+                                "0": {
+                                    "items":1
+                                },
+                                "600": {
+                                    "items":2
+                                },
+                                "992": {
+                                    "items":3
+                                }
+                            }
+                        }'>
+                <article class="entry entry-display">
+                    <figure class="entry-media">
+                        <a href="single.html">
+                            <img src="assets/images/blog/home/post-1.jpg" alt="image desc">
+                        </a>
+                    </figure><!-- End .entry-media -->
+
+                    <div class="entry-body pb-4 text-center">
+                        <div class="entry-meta">
+                            <a href="#">Nov 22, 2018</a>, 0 Comments
+                        </div><!-- End .entry-meta -->
+
+                        <h3 class="entry-title">
+                            <a href="single.html">Sed adipiscing ornare.</a>
+                        </h3><!-- End .entry-title -->
+
+                        <div class="entry-content">
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus
+                                hendrerit.<br>Pelletesque aliquet nibh necurna. </p>
+                            <a href="single.html" class="read-more">Read More</a>
+                        </div><!-- End .entry-content -->
+                    </div><!-- End .entry-body -->
+                </article><!-- End .entry -->
+
+                <article class="entry entry-display">
+                    <figure class="entry-media">
+                        <a href="single.html">
+                            <img src="assets/images/blog/home/post-2.jpg" alt="image desc">
+                        </a>
+                    </figure><!-- End .entry-media -->
+
+                    <div class="entry-body pb-4 text-center">
+                        <div class="entry-meta">
+                            <a href="#">Dec 12, 2018</a>, 0 Comments
+                        </div><!-- End .entry-meta -->
+
+                        <h3 class="entry-title">
+                            <a href="single.html">Fusce lacinia arcuet nulla.</a>
+                        </h3><!-- End .entry-title -->
+
+                        <div class="entry-content">
+                            <p>Sed pretium, ligula sollicitudin laoreet<br>viverra, tortor libero sodales leo, eget
+                                blandit nunc tortor eu nibh. Nullam mollis justo. </p>
+                            <a href="single.html" class="read-more">Read More</a>
+                        </div><!-- End .entry-content -->
+                    </div><!-- End .entry-body -->
+                </article><!-- End .entry -->
+
+                <article class="entry entry-display">
+                    <figure class="entry-media">
+                        <a href="single.html">
+                            <img src="assets/images/blog/home/post-3.jpg" alt="image desc">
+                        </a>
+                    </figure><!-- End .entry-media -->
+
+                    <div class="entry-body pb-4 text-center">
+                        <div class="entry-meta">
+                            <a href="#">Dec 19, 2018</a>, 2 Comments
+                        </div><!-- End .entry-meta -->
+
+                        <h3 class="entry-title">
+                            <a href="single.html">Quisque volutpat mattis eros.</a>
+                        </h3><!-- End .entry-title -->
+
+                        <div class="entry-content">
+                            <p>Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est,
+                                vitae luctus metus libero eu augue. </p>
+                            <a href="single.html" class="read-more">Read More</a>
+                        </div><!-- End .entry-content -->
+                    </div><!-- End .entry-body -->
+                </article><!-- End .entry -->
+            </div><!-- End .owl-carousel -->
+        </div><!-- container -->
+
+        <div class="more-container text-center mb-0 mt-3">
+            <a href="/productsList" class="btn btn-outline-darker btn-more"><span>View more products</span><i
+                    class="icon-long-arrow-right"></i></a>
+        </div><!-- End .more-container -->
+    </div>
+    <div class="cta cta-display bg-image pt-4 pb-4"
+        style="background-image: url(assets/images/backgrounds/cta/bg-6.jpg);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-9 col-xl-8">
+                    <div class="row no-gutters flex-column flex-sm-row align-items-sm-center">
+                        <div class="col">
+                            <h3 class="cta-title text-white">Sign Up & Get 10% Off</h3><!-- End .cta-title -->
+                            <p class="cta-desc text-white">Cycle presents the best designs</p>
+                            <!-- End .cta-desc -->
+                        </div><!-- End .col -->
+
+                        <div class="col-auto">
+                            <a href="/register" class="btn btn-outline-white"><span>SIGN UP</span><i
+                                    class="icon-long-arrow-right"></i></a>
+                        </div><!-- End .col-auto -->
+                    </div><!-- End .row no-gutters -->
+                </div><!-- End .col-md-10 col-lg-9 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .cta -->
+
+
+
+
+    <footer class="footer footer-dark">
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="widget widget-about">
+                            <img src="/images/New LOGO wihgt.png" class="footer-logo" alt="Footer Logo" width="105"
+                                height="25">
+
+                            <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
+                                magna eros eu erat. </p>
+
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=140235673279940&kid_directed_site=0&app_id=140235673279940&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv9.0%2Fdialog%2Foauth%3Fapp_id%3D140235673279940%26auth_type%26cbt%3D1670995938306%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df2fc7543803f0fc%2526domain%253Dmy.freenom.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmy.freenom.com%25252Ff3f95d945b07404%2526relation%253Dopener%26client_id%3D140235673279940%26config_id%26display%3Dpopup%26domain%3Dmy.freenom.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fmy.freenom.com%252Fsociallogin.php%26force_confirmation%3Dfalse%26id%3Dfbc4b8d6d322bc%26locale%3Den_US%26logger_id%3D2d511066-0c54-4ebe-8620-460b152ab2cf%26messenger_page_id%26origin%3D1%26plugin_prepare%3Dtrue%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df27ec427004051%2526domain%253Dmy.freenom.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmy.freenom.com%25252Ff3f95d945b07404%2526relation%253Dopener.parent%2526frame%253Dfbc4b8d6d322bc%26ref%3DLoginButton%26reset_messenger_state%3Dfalse%26response_type%3Dsigned_request%252Ctoken%252Cgraph_domain%26scope%26sdk%3Djoey%26size%3D%257B%2522width%2522%253A600%252C%2522height%2522%253A679%257D%26url%3Ddialog%252Foauth%26version%3Dv9.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df27ec427004051%26domain%3Dmy.freenom.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fmy.freenom.com%252Ff3f95d945b07404%26relation%3Dopener.parent%26frame%3Dfbc4b8d6d322bc%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=popup&locale=en_GB&pl_dbl=0"
+                                    class="social-icon" title="Facebook" target="_blank"><i
+                                        class="icon-facebook-f"></i></a>
+                                <a href="https://twitter.com/" class="social-icon" title="Twitter" target="_blank"><i
+                                        class="icon-twitter"></i></a>
+                                <a href="https://www.instagram.com/accounts/login/" class="social-icon"
+                                    title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                                <a href="https://www.youtube.com/watch?v=0K4F9UEdy9o" class="social-icon"
+                                    title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
+                                <a href="https://in.pinterest.com/" class="social-icon" title="Pinterest"
+                                    target="_blank"><i class="icon-pinterest"></i></a>
+                            </div><!-- End .soial-icons -->
+                        </div><!-- End .widget about-widget -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="widget">
+                            <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+
+                            <ul class="widget-list">
+                                <li><a href="about.html">About Cycle</a></li>
+                                <li><a href="#">How to shop on Cycle</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="/Login">Log in</a></li>
+                            </ul><!-- End .widget-list -->
+                        </div><!-- End .widget -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="widget">
+                            <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+
+                            <ul class="widget-list">
+                                <li><a href="#">Payment Methods</a></li>
+                                <li><a href="#">Money-back guarantee!</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Terms and conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul><!-- End .widget-list -->
+                        </div><!-- End .widget -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="widget">
+                            <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+
+                            <ul class="widget-list">
+                                <li><a href="/register">Sign In</a></li>
+                                <li><a href="/viewCart">View Cart</a></li>
+                                <li><a href="/wishlist">My Wishlist</a></li>
+                                <li><a href="/trackOrder">Track My Order</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul><!-- End .widget-list -->
+                        </div><!-- End .widget -->
+                    </div><!-- End .col-sm-6 col-lg-3 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End .footer-middle -->
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="footer-copyright">Copyright © 2022 Cycle Shop. All Rights Reserved.</p>
+                <!-- End .footer-copyright -->
+                <figure class="footer-payments">
+                    <img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                </figure><!-- End .footer-payments -->
+            </div><!-- End .container -->
+        </div><!-- End .footer-bottom -->
+    </footer><!-- End .footer -->
+
+
+
+
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+    <script>
+        function addToCart(productId) {
+            $.ajax({
+                url: '/addToCart/' + productId,
+                method: 'get',
+                success: (response) => {
+                    if (response.status) {
+
+                        let count = $('#cartCount').html()
+                        count = parseInt(count) +
+                            $("#cartCount").html(count)
+
+                        Swal.fire(
+                            'Add to cart',
+                            'God job',
+                            'success'
+                        ).then(() => {
+                            location.reload()
+                        })
+                    }
+
+                }
+
+            })
+        }
+    </script>
+
+    <script>
+        function addToWishList(productId) {
+            $.ajax({
+                url: '/addToWishList/' + productId,
+                method: 'get',
+                success: (response) => {
+                    if (response.status) {
+
+                        let count = $('#wishlistCount').html()
+                        count = parseInt(count) +
+                            $("#wishlistCount").html(count)
+
+                        Swal.fire(
+                            'Add to wish List!',
+                            'Good job',
+                            'success'
+                        ).then(() => {
+                            location.reload()
+                        })
+                    }
+
+                }
+
+            })
+        }
+    </script>

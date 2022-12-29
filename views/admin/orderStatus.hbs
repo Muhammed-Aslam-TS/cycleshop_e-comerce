@@ -1,0 +1,95 @@
+<main class="main" id="main">
+  <section>
+
+
+    <div class="container p-5 mt-5">
+
+
+      <div class="card-body">
+        <h3>Order Detils </h3>
+        <hr>
+        <table class="table table-borderless datatable">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">User</th>
+              <th scope="col">Date</th>
+              <th scope="col">Price</th>
+              <th scope="col">Method</th>
+              <th scope="col">Order product</th>
+              <th scope="col">User Detils</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            {{#each orders}}
+            <tr>
+              <th scope="row">{{incremented @ index}}</th>
+              <td>{{this.deliveryDetils.name}}{{this.deliveryDetils.Lastname}}</td>
+              <td>{{this.date}}</td>
+              <td>{{this.totalPrice}}</td>
+              <td>{{this.paymentMethod}}</td>
+              <td><a href="/admin/orderProduct/{{this._id}}">Order product -></a></td>
+              <td><a href="/admin/userDetils/{{this.userId}}">View User Detils -></a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function orderStatus(orderId, cancel) {
+    console.log('llllll')
+    $.ajax({
+      url: '/admin/userOrderStatus',
+      data: {
+        user: orderId,
+        status: cancel,
+
+      },
+      method: 'post',
+      success: (response) => {
+        if (response.status) {
+          location.reload()
+          alert('hello')
+        }
+
+      }
+    })
+  }
+
+</script>
+
+
+
+
+{{!-- if (response.status) {
+location.reload()
+alert('hello')
+} --}}
