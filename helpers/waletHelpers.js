@@ -51,7 +51,7 @@ module.exports = {
 
 
 
-                let finelAmount = TotalPrice + wallet.balance
+                let finelAmount = wallet.balance + TotalPrice
                 finelAmount = parseInt(finelAmount)
 
                 let transactions = {
@@ -111,7 +111,7 @@ module.exports = {
 
             if (trackOrder == "Return Aproved") {
 
-                let finelAmount = TotalPrice + balance
+                let finelAmount = balance + TotalPrice
                 finelAmount = parseInt(finelAmount)
                 let transactions = {
                     credit: parseInt(TotalPrice),
