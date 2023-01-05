@@ -262,6 +262,7 @@ module.exports.index = (req, res, next) => {
         })
     },
     module.exports.ReturnStatus = (req, res, next) => {
+
         waletHelpers.returnProuductAmount(req.body).then(() => {
         })
         adminHelpers.updateStatus1(req.body).then(() => {

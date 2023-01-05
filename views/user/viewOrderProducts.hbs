@@ -22,12 +22,13 @@
         <h1 class="page-title"> Ordered Products<span></span></h1>
     </div><!-- End .container -->
 </div>
+{{#each products}}
 <div class="container">
     <div class="row">
 
         <div class="card col-md-12 mb-5 mt-4">
             <div class="card-body rounded">
-                {{#each products}}
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mt-1">
@@ -49,6 +50,14 @@
                             <s>₹ {{this.product.OfferPrice}}</s>
                             <h5 class="">₹ <span class="text-danger">{{this.product.OfferPrice}}</span></h5>
                         </span>
+                        {{!-- {{#if this.quantity}}
+                        <span>
+                            <s>₹ {{multyply this.product.OfferPrice this.quantity}} || {{multyply this.product.Price
+                                this.quantity}}</s>
+                            <h5 class="">₹ <span class="text-danger">{{multyply this.product.OfferPrice this.quantity}}
+                                    || {{multyply this.product.Price this.quantity}}</span></h5>
+                        </span> --}}
+
                         {{else}}
                         <h5 class="mt-1">₹ <span class="text-danger">{{this.product.Price}}</span></h5>
                         {{/if}}
@@ -70,7 +79,7 @@
 
 
                         {{#if (isDelivered this.trackorder)}}
-                        <a onclick="orderReturn('{{this._id}}','{{this.product._id}}')"
+                        <a onclick="orderReturn('{{this.product._id}}','{{this._id}}')"
                             class="btn text-white btn-success btn-rounded"><span>Return</span></a>
                         {{else}}
 
@@ -78,9 +87,10 @@
 
 
                         {{#if (isCanceled this.trackorder) }}
+                        
 
                         {{else}}
-                        <a onclick="updateStatus('{{this._id}}','{{this.product._id}}')"
+                        <a onclick="updateStatus('{{this.product._id}}','{{this._id}}')"
                             class="btn text-white btn-danger btn-rounded"><span>Cancel</span></a>
                         {{/if}}
                     </div>
@@ -88,10 +98,6 @@
 
 
                 </div>
-
-
-
-
 
 
 
@@ -149,7 +155,6 @@
                             {{/if}}
                         </div>
                         <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-                        {{/each}}
                     </div>
                 </div>
             </div>
@@ -157,6 +162,7 @@
         </div>
     </div>
 </div>
+{{/each}}
 
 
 
@@ -169,19 +175,22 @@
 
 
 <script>
-    function updateStatus(orderId, proId) {
+    function updateStatus(proId,orderId) {
+
         $.ajax({
             url: '/updateStatus',
             method: 'post',
             data: {
+                proId: proId,
                 orderId: orderId,
-                proId: proId
+                
             },
             success: (response) => {
+                alert(response)
                 if (response.status) {
                     Swal.fire(
                         'Order Canceled',
-                        'Your actio successful',
+                        'Your action successful',
                         'success'
                     ).then(() => {
                         location.reload()
@@ -193,13 +202,13 @@
 </script>
 
 <script>
-    function orderReturn(orderId, proId) {
+    function orderReturn( proId,orderId) {
         $.ajax({
             url: '/orderReturn',
             method: 'post',
             data: {
+               proId: proId,
                 orderId: orderId,
-                proId: proId
             },
             success: (response) => {
                 if (response.status) {

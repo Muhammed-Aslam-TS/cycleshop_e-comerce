@@ -1,4 +1,4 @@
-require ('dotenv').config()
+require('dotenv').config()
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -25,7 +25,7 @@ app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout', layoutsD
 
 
 
-app.use(session({secret:"Private", resave:true, saveUninitialized:true ,cookie:{maxAge:60000000}}))
+app.use(session({ secret: "Private", resave: true, saveUninitialized: true, cookie: { maxAge: 60000000 } }))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,40 +33,45 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-Handlebars.registerHelper('for', function(from, to, incr, block) {
+
+Handlebars.registerHelper('for', function (from, to, incr, block) {
   var accum = '';
-  for(var i = from; i < to; i += incr)
-      accum += block.fn(i);
+  for (var i = from; i < to; i += incr)
+    accum += block.fn(i);
   return accum;
 })
-Handlebars.registerHelper("inc", function(value, options)
-{
-    return parseInt(value) + 1;
+Handlebars.registerHelper("inc", function (value, options) {
+  return parseInt(value) + 1;
 });
 
 Handlebars.registerHelper('incremented', function (index) {
-    ++index;
-    return index;
+  ++index;
+  return index;
 });
 
+Handlebars.registerHelper('multyply', (value1, value2) => {
+  return (parseInt(value1 * value2))
+}
 
-Handlebars.registerHelper('isDelivered',(value)=>{
-  return value == 'Delivered' ? true:false
+)
+
+Handlebars.registerHelper('isDelivered', (value) => {
+  return value == 'Delivered' ? true : false
 })
-Handlebars.registerHelper('isCanceled',(value)=>{
-  return value == 'canceled' ? true:false
+Handlebars.registerHelper('isCanceled', (value) => {
+  return value == 'canceled' ? true : false
 })
-Handlebars.registerHelper('isOrderConfirmed',(value)=>{
-  return value == 'Dispatched' ? true:false
+Handlebars.registerHelper('isOrderConfirmed', (value) => {
+  return value == 'Dispatched' ? true : false
 })
-Handlebars.registerHelper('isShipped',(value)=>{
-  return value == 'Shipped' ? true:false
+Handlebars.registerHelper('isShipped', (value) => {
+  return value == 'Shipped' ? true : false
 })
-Handlebars.registerHelper('isOutForDelivary',(value)=>{
-  return value == 'OutForDelivery' ? true:false
+Handlebars.registerHelper('isOutForDelivary', (value) => {
+  return value == 'OutForDelivery' ? true : false
 })
-Handlebars.registerHelper('isReturn requsted',(value)=>{
-  return value == 'Return Aproved' ? true:false
+Handlebars.registerHelper('isReturnRequsted', (value) => {
+  return value == 'ReturnAproved' ? true : false
 })
 
 

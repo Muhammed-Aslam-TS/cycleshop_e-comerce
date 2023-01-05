@@ -429,6 +429,7 @@ module.exports = {
                 })
 
                 db.get().collection(collection.CART_COLLECTION).deleteOne({ user: ObjectId(order.userId) })
+
                 resolve(response.insertedId)
 
             })
@@ -674,6 +675,8 @@ module.exports = {
         })
     },
     orderReturn1: (ordertId) => {
+        console.log(ordertId);
+        console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
         return new Promise(async (resolve, reject) => {
             let product = await db.get().collection(collection.ORDER_COLLECTIONS).aggregate([
 

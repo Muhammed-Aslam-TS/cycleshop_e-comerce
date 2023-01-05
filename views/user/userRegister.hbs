@@ -41,7 +41,7 @@
 
           </div>
           <!-- Re Enter Password input -->
-      
+
           <!-- Passworeffrelrd input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form1Example23">Referral Code</label>
@@ -52,10 +52,11 @@
           </div>
           <!-- Re Enter reffrel input -->
 
-            <input type="text" id="" name="userReferral" class="form-control form-control-lg" hidden/>
+          <input type="text" id="" name="userReferral" class="form-control form-control-lg" hidden />
 
 
-          <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="return validateform()">Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="return validateform()">
+            Submit </button>
           {{!-- <a type="submit" class="btn btn-primary btn-lg btn-block">Register</a> --}}
 
         </form>
@@ -72,15 +73,18 @@
   var nameError = document.getElementById('name-error');
   var emailError = document.getElementById('email-error')
   var phoneError = document.getElementById('phone-error')
-  var passwordError = document.getElementById('password-error')
-
+  var passwordError = document.getElementById("password-error")
 
   function validatename() {
     let name = document.getElementById('contact-name').value
-    if (name==" ") {
+    if (name.length == "" || name.length == 0) {
       nameError.innerHTML = 'Name is required';
       return false
-    } 
+
+    } if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+      nameError.innerHTML = 'Write full name';
+      return false;
+    }
     else {
       nameError.innerHTML = ''
       return true
@@ -111,6 +115,7 @@
       phoneError.innerHTML = 'Phone is required'
       return false
     }
+
     if (phone.length !== 10) {
       phoneError.innerHTML = 'Phone shold be 10 digits'
       return false
@@ -125,18 +130,20 @@
   //phone ned
 
   function validatePassword() {
-    var password = document.getElementById('contact-password')
+    var password = document.getElementById("contact-password").value
+
     if (password.length == '') {
       passwordError.innerHTML = 'Password is required'
       return false
     }
     if (password.length < 8) {
-      passwordError.innerHTML = 'Atlist 8 digit'
+      passwordError.innerHTML = 'Atleast 8 digit'
       return false
     } else {
       passwordError.innerHTML = ''
       return true
     }
+
   }
 
   //end password

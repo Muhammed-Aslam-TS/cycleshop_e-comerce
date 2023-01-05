@@ -63,8 +63,8 @@ paypal.configure({
         let pro = await productsHelpers.productHelpers(page)
         let member = req.session.user;
 
-      
-        res.render('user/mensProducts', {pro,category1,page, mens, cartCount, user })
+
+        res.render('user/mensProducts', { pro, category1, page, mens, cartCount, user })
     },
 
     module.exports.womens = async (req, res, next) => {
@@ -80,11 +80,9 @@ paypal.configure({
         page.pageno = (req.query.page == null) ? 1 : parseInt(req.query.page)
         page.startFrom = (page.pageno - 1) * page.perpage
         let pro = await productsHelpers.productHelperswomen(page)
-        console.log(pro);
-        console.log('womens------------------------------');
         let member = req.session.user;
 
-        res.render('user/womensProducts', {pro,category1,page, womens, user, cartCount })
+        res.render('user/womensProducts', { pro, category1, page, womens, user, cartCount })
 
     },
     module.exports.kids = async (req, res, next) => {
@@ -101,14 +99,12 @@ paypal.configure({
         page.startFrom = (page.pageno - 1) * page.perpage
         let pro = await productsHelpers.productHelpers(page)
         let member = req.session.user;
-       // res.render('user/productsList', { pro, category1, page, products, cartCount, user })
-        res.render('user/kidsProducts', { pro,category1,page, kids, cartCount, user })
+        // res.render('user/productsList', { pro, category1, page, products, cartCount, user })
+        res.render('user/kidsProducts', { pro, category1, page, kids, cartCount, user })
     },
     module.exports.zoom = (req, res, next) => {
         let id = req.params.id
         productsHelpers.getShowImage(id).then(async (products) => {
-            console.log(products);
-            console.log('8888888888888888888888888888888');
             let user = req.session.user
             let cartCount = await userHelpers.getCartCount(req.session.user._id)
             res.render('user/productZoom', { products, cartCount, user })
@@ -223,9 +219,7 @@ paypal.configure({
         let products = await userHelpers.getCartProducts(req.session.user._id)
         let total = await userHelpers.getTotalAmount(req.session.user._id)
         let cartCount = await userHelpers.getCartCount(req.session.user._id)
-
         let user = req.session.user._id
-        console.log(total);
         res.render('user/cart', { products, user, total, cartCount })
 
     },
@@ -373,6 +367,8 @@ paypal.configure({
         res.render('user/viewOrderProducts', { products, orders })
     },
     module.exports.OrderCancle = (req, res, next) => {
+        console.log(req.body);
+        console.log('body222222222222222222222222222222222');
         userHelpers.orderCancle(req.body).then(() => {
             res.json({ status: true })
         })
@@ -460,6 +456,8 @@ paypal.configure({
 
     },
     module.exports.UpdateStatus = async (req, res, next) => {
+        console.log(req.body);
+        console.log('===================================');
         let proId = await waletHelpers.getWaletAmount(req.body, req.session.user._id).then((response) => {
         })
         adminHelpers.cancelOrder(req.body).then(() => {

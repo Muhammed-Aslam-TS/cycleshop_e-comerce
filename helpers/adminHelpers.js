@@ -460,13 +460,15 @@ module.exports = {
 
     // }
     updateStatus: (details) => {
+console.log(details);
+console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
 
         let orderId = details.orderId
         let proId = details.proId
 
         return new Promise((resolve, reject) => {
             db.get().collection(collection.ORDER_COLLECTIONS)
-                .updateOne({ _id: ObjectId(orderId), 'products.item': ObjectId(proId) },
+                .updateOne({ _id: ObjectId(proId), 'products.item': ObjectId(orderId) },
                     {
                         $set: {
                             'products.$.trackorder': details.status
@@ -513,8 +515,6 @@ module.exports = {
 
         console.log(order);
         let quantity = order.products[0].quantity
-        console.log(quantity);
-        console.log('__________________13');
 
         return new Promise((resolve, reject) => {
             status = 'Return requsted'
@@ -548,8 +548,7 @@ module.exports = {
 
         console.log(order);
         let quantity = order.products[0].quantity
-        console.log(quantity);
-        console.log('__________________14');
+
 
         return new Promise((resolve, reject) => {
             db.get().collection(collection.ORDER_COLLECTIONS)

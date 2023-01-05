@@ -22,10 +22,15 @@ module.exports = {
         let orderId = data.orderId
         var date = new Date()
         data.date = date
+
+        function indexNo(element, index, array) {
+            return (element.item == proId);
+        }
+
         return new Promise(async (resolve, reject) => {
 
             let wallet = await db.get().collection(collection.WALET_COLLECTION).findOne({ user: ObjectId(userId) })
-            let product = await db.get().collection(collection.PRODUCTS_COLLECTION).findOne({ _id: ObjectId(proId) })
+            let product = await db.get().collection(collection.PRODUCTS_COLLECTION).findOne({ _id: ObjectId(orderId) })
 
             db.get().collection(collection.ORDER_COLLECTIONS)
                 .updateOne({ _id: ObjectId(orderId), 'products.item': ObjectId(proId) },
@@ -35,23 +40,28 @@ module.exports = {
                         }
                     })
 
-            let detils = await db.get().collection(collection.ORDER_COLLECTIONS)
-                .findOne({ _id: ObjectId(orderId), 'products.item': ObjectId(proId) })
-            let trackOrder = detils.products[0].trackorder
+            let orderDetils = await db.get().collection(collection.ORDER_COLLECTIONS)
+                .findOne({ 'products.item': ObjectId(proId) })
 
-            if (detils.products[0].CouponP) {
-                let detils = await db.get().collection(collection.ORDER_COLLECTIONS)
-                    .findOne({ _id: ObjectId(orderId), 'products.item': ObjectId(proId) })
-                var TotalPrice = detils.products[0].OfferPrice || detils.products[0].Price
+            const indexNum = orderDetils.products.findIndex(indexNo)
+
+            let trackOrder = orderDetils.products[indexNum].trackorder
+
+            if (orderDetils.products[indexNum].CouponP) {
+                var TotalPrice = orderDetils.products[indexNum].OfferPrice
+                console.log(TotalPrice);
+                console.log('__________________________if');
             } else {
-                var TotalPrice = detils.products[0].OfferPrice || detils.products[0].Price
+                var TotalPrice = orderDetils.products[indexNum].Price
+                console.log(TotalPrice);
+                console.log('__________________________else');
             }
 
-            if (trackOrder == "canceled" && detils.paymentMethod != "COD") {
 
+            if (trackOrder == "canceled" && orderDetils.paymentMethod != "COD") {
 
-
-                let finelAmount = wallet.balance + TotalPrice
+                let wallet = await db.get().collection(collection.WALET_COLLECTION).findOne({ user: ObjectId(userId) })
+                let finelAmount = parseInt(wallet.balance) + TotalPrice
                 finelAmount = parseInt(finelAmount)
 
                 let transactions = {
@@ -82,6 +92,10 @@ module.exports = {
         let userId = data.userId
         var date = new Date()
         data.date = date
+        function indexNo(element, index, array) {
+            return (element.item == proId);
+        }
+
         return new Promise(async (resolve, reject) => {
 
             let wallet = await db.get().collection(collection.WALET_COLLECTION).findOne({ user: ObjectId(userId) })
@@ -98,16 +112,20 @@ module.exports = {
 
             let detils = await db.get().collection(collection.ORDER_COLLECTIONS)
                 .findOne({ _id: ObjectId(orderId), 'products.item': ObjectId(proId) })
-            let trackOrder = detils.products[0].trackorder
-            let TotalPrice = detils.products[0].OfferPrice || detils.products[0].Price
 
-            if (detils.products[0].CouponP) {
-                let detils = await db.get().collection(collection.ORDER_COLLECTIONS)
-                    .findOne({ _id: ObjectId(orderId), 'products.item': ObjectId(proId) })
-                let TotalPrice = detils.products[0].OfferPrice || detils.products[0].Price
+            const findIndex = detils.products.findIndex(indexNo)
+
+            if (detils.products[findIndex].CouponP) {
+                var TotalPrice = detils.products[findIndex].OfferPrice
+                console.log(TotalPrice);
+                console.log('__________________________if');
             } else {
-                let TotalPrice = detils.products[0].OfferPrice || detils.products[0].Price
+                var TotalPrice = detils.products[findIndex].Price
+                console.log(TotalPrice);
+                console.log('__________________________else');
             }
+
+            let trackOrder = detils.products[findIndex].trackorder
 
             if (trackOrder == "Return Aproved") {
 
@@ -133,12 +151,5 @@ module.exports = {
             resolve()
         })
     }
-
-
-
-
-
-
-
 
 }
