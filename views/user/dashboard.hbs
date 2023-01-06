@@ -381,7 +381,7 @@
                                                     <div class="ml-auto">
                                                         <a href="/accountDelete/{{this.user._id}}"
                                                             class="btn btn-danger">Deactivate</a>
-                                                         <button class="btn btn-danger"></button> 
+                                                        <button class="btn btn-danger"></button>
                                                     </div>
                                                 </div> --}}
                                             </div>
@@ -708,17 +708,23 @@
                                                                 {{this.date}}
                                                             </div>
                                                             <div class="col-md-3">
-
+                                                                {{#if this.credit}}
                                                                 Rs &nbsp; <span
                                                                     class="text-success">{{this.credit}}</span><br>
-
+                                                                {{/if}}
+                                                                {{#if this.debit}}
                                                                 Rs &nbsp; <span
                                                                     class="text-danger">{{this.debit}}</span>
+                                                                {{/if}}
 
                                                             </div>
                                                             <div class="col-md-3">
+                                                                {{#if this.credit}}
                                                                 &nbsp; <span class="text-success">Debited</span> <br>
+                                                                {{/if}}
+                                                                {{#if this.debit}}
                                                                 &nbsp; <span class="text-danger">Credited</span>
+                                                                {{/if}}
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <p>{{this.message}}</p>
@@ -743,7 +749,7 @@
     </div><!-- End .page-content -->
     </main><!-- End .main -->
 
-     <footer class="footer footer-dark">
+    <footer class="footer footer-dark">
         <div class="footer-middle">
             <div class="container">
                 <div class="row">

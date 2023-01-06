@@ -6,16 +6,16 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Brand Name</label>
                     <input type="text" class="form-control" name="Name" id="exampleInputName"
-                        aria-describedby="NameHelp" placeholder="Name" value="{{product.Name}}">
+                        aria-describedby="NameHelp" placeholder="Name" value="{{product.Name}}" >
                 </div><br>
                 <div class="form-group">
                     <label for="exampleInputPrice">Stock</label>
-                    <input type="number" class="form-control" name="Stock" id="exampleInputStock" placeholder="Stock"
+                    <input type="number" class="form-control" name="Stock" id="exampleInputStock" placeholder="Stock" 
                         value="{{product.Stock}}">
                 </div><br>
                 <div class="form-group">
                     <label for="exampleInputPrice">Price</label>
-                    <input type="number" class="form-control" name="Price" id="exampleInputPrice" placeholder="Price"
+                    <input type="number" class="form-control" name="Price" id="exampleInputPrice" placeholder="Price" 
                         value="{{product.Price}}">
                 </div><br>
                 {{!-- <div class="form-group">
@@ -25,17 +25,17 @@
                 </div><br> --}}
                 <div>
                     <label for="floatingSelect">Category</label>
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example" 
                         name="addCategory">
                         {{#each category}}
-                        <option value={{this.CategoryName}}>{{this.CategoryName}}</option>
+                        <option value={{this.CategoryName}}>{{this.CategoryName}} </option>
                         {{/each}}
                     </select>
                     <br>
                 </div>
                 <div class="form-group">
                     <label for="">Description</label>
-                    <input type="text" class="form-control" name="Description" id="exampleInputDescription"
+                    <input type="text" class="form-control" name="Description" id="exampleInputDescription" 
                         aria-describedby="DescriptionHelp" placeholder="Description" value="{{product.Description}}">
                 </div><br>
 
@@ -52,7 +52,7 @@
                         style="width:100px; heighgt:100px;" class="product-image img-sm img-thumbnail " id="viewImage">
 
                     <input type="file" class="form-control" name="Image" id="exampleInputfile" multiple="multiple"
-                        aria-describedby="fileHelp" placeholder="" onchange="imageView(event)">
+                        aria-describedby="fileHelp" placeholder="" onchange="imageView(event)" >
                 </div><br>
 
                 <button onclick="hello()" type="submit" class="btn btn-success">Submit</button>

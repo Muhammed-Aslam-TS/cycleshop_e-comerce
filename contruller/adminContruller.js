@@ -9,6 +9,10 @@ const { upload, upload2, upload3 } = require('../public/javascripts/fileUpload')
 const { render, response } = require('../app');
 const waletHelpers = require('../helpers/waletHelpers');
 const chartHelper = require('../helpers/chartHelper')
+const sharp = require('sharp');
+
+
+
 
 const admin = {
     Email: 'tzme.aslam@gmail.com',
@@ -129,6 +133,7 @@ module.exports.index = (req, res, next) => {
     },
     module.exports.AddProduct = (req, res, next) => {
         productsHelpers.getAllcategory().then((categoryName) => {
+            
             res.render('admin/addProduct', { admin: true, categoryName })
         })
     },
@@ -137,6 +142,12 @@ module.exports.index = (req, res, next) => {
         ImageFileName = Imagefiles.map((images) => {
             return images.filename
         })
+        sharp('input.jpg')
+        .extract({ left: 0, top: 0, width: 100, height: 100 })
+        .toFile('output.jpg', (err, info) => {
+          // output.jpg is a 100x100 version of input.jpg
+        });
+
         req.body.img = ImageFileName
         productsHelpers.addProduct(req.body, (id) => {
             res.redirect('/admin/Products')

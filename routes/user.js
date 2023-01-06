@@ -22,7 +22,7 @@ paypal.configure({
   'client_id': 'AT4owDQpEO7Cv00yb2Kd8qwz9Ejnmp18d_f4iaa8tYPwi4Bx4LnPgGY2IJhbcDahF2xwQZp-ziOLGQ1F',
   'client_secret': 'EHmq9ltmiAhvj8EGX_4NBhX8bkW-G6K8eWT08F4aZNnTkj2bC2EP-1stqpvzmwwevzlZkA-kgjKKFH8m'
 })
-const { index2, mens, womens, kids, zoom, login, register, registerPost, loginPost, otpLogin, sendCode, sendCodePost, otpVerify, productsList, viewCart, addCart, ChageProductQuantity, removeProduct, GetCouponCode, CheckCouponCode, PlaceOrder, placeOrderPost, VerifyPayment, peymantMethode, VerifyPaymentRazorpzy, verifyPaymentpaypala, OrderSuccess, Dashboard, ViewOrderProducts, OrderCancle, AddAddress, AddAddresses, AddressDetails, Wishlist, AddToWishList, dashbord2, TrackOrder, Profilechanges, Updatepassword, AccountDelete, addaddress1, DEleteaddress, Addaddress1, UpdateStatus, SearchSubmit, OrderReturn, ReturnProduct } = require('../contruller/userContruller');
+const { index2, mens, womens, kids, zoom, login, register, registerPost, loginPost, otpLogin, sendCode, sendCodePost, otpVerify, productsList, viewCart, addCart, ChageProductQuantity, removeProduct, GetCouponCode, CheckCouponCode, PlaceOrder, placeOrderPost, VerifyPayment, peymantMethode, VerifyPaymentRazorpzy, verifyPaymentpaypala, OrderSuccess, Dashboard, ViewOrderProducts, OrderCancle, AddAddress, AddAddresses, AddressDetails, Wishlist, AddToWishList, dashbord2, TrackOrder, Profilechanges, Updatepassword, AccountDelete, addaddress1, DEleteaddress, Addaddress1, UpdateStatus, SearchSubmit, OrderReturn, ReturnProduct, dashbord } = require('../contruller/userContruller');
 
 
 const { placeOrder } = require('../helpers/userHelpers');
@@ -134,7 +134,7 @@ router.get('/wishlist', verifyLogin, Wishlist)
 
 router.get('/addToWishList/:id', AddToWishList)
 
-router.get('/dashbord', verifyLogin, dashbord2)
+router.get('/dashbord', verifyLogin, dashbord)
 
 router.get('/trackOrder', TrackOrder)
 

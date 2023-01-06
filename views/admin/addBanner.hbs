@@ -2,33 +2,35 @@
     <section>
 
         <div class="row g-3">
+            
             <div class="col-lg-6">
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add Banner</h5>
+                        <h3 class="text-center"><b>Add Banner</b></h3>
 
                         <!-- General Form Elements -->
                         <form action="/admin/addBanner" method="post" enctype="multipart/form-data" >
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">Bnner Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="bannerName" class="form-control">
+                                    <input type="text" name="bannerName" class="form-control" id="contact-banner" onkeyup="validateBanner()">
                                 </div>
+                                <span class="text-danger" id="banner-error"></span>
                             </div>
                             
                             <div class="row mb-3">
                                 <label for="inputNumber" class="form-label">File Upload</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" name="Images" type="file" id="formFile"
-                                        multiple="multiple">
+                                        multiple="multiple" required>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
 
                                 <div class="col-sm-10">
-                                    <button onclick="hello()" class="btn btn-primary" type="submit">Submit Form </button>
+                                    <button onclick="validateform()" class="btn btn-primary" type="submit">Submit Form </button>
 
                                 </div>
                             </div>
@@ -46,13 +48,30 @@
     </section>
 </main>
 <script>
-  function hello() {
-    Swal.fire(
-      'Banner aded',
-      'God job',
-      'success'
-    ).then(() => {
 
-    })
-  }
+    var bannerError = document.getElementById('banner-error')
+
+
+    function validateBanner() {
+        let banner = document.getElementById('contact-banner').value
+        if (banner.length == "" || banner.length == 0) {
+            bannerError.innerHTML = 'banner name is required';
+            return false
+        }
+        else {
+            bannerError.innerHTML = ''
+            return true
+        }
+    }
+
+</script>
+<script>
+    function validateform() {
+        if (validateBanner() ) {
+            return true
+        } else {
+            validateBanner()
+            return false
+        }
+    }
 </script>

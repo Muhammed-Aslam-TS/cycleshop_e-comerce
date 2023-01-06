@@ -12,21 +12,25 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">Couppen Code</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="CouppenCode" class="form-control">
+                                    <input type="text" name="CouppenCode" class="form-control" onkeyup="validatecode()" id="contact-coupon">
+                                    
                                 </div>
+                                <span id="Code-error" class="text text-danger"></span>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputText" class="form-label">Couppen %</label>
+                                <label for="inputText" class="form-label">Couppen
+                                    %</label>
                                 <div class="col-sm-10">
-                                    <input type="number" name="CouppenP" class="form-control">
+                                    <input type="number" name="CouppenP" class="form-control"  id="contact-Percentage" onkeyup="validatepacentage()">
                                 </div>
+                                <span class="text text-danger" id="Percentage-err"></span>
                             </div>
 
                             <div class="row mb-3">
 
                                 <div class="col-sm-10">
-                                    <button onclick="hello()" class="btn btn-primary" type="submit">Submit Form
-                                    </button>
+                                    <button type="submit" class="btn btn-success"
+                                        onclick="return validateform()">Submit</button>
                                 </div>
                             </div>
                         </form><!-- End General Form Elements -->
@@ -37,14 +41,50 @@
     </section>
 </main>
 
+
+
 <script>
-    function hello() {
-        Swal.fire(
-            'Coupon Aded',
-            'God job',
-            'success'
-        ).then(() => {
-            
-        })
+
+    var codeError = document.getElementById('Code-error')
+    var PercentageError = document.getElementById('Percentage-err')
+
+    function validatecode() {
+        let code = document.getElementById('contact-coupon').value
+        if (code.length == "" || code.length == 0) {
+            codeError.innerHTML = 'coupon code is required';
+            return false
+        }
+        else {
+            codeError.innerHTML = ''
+            return true
+        }
+    }
+    function validatepacentage() {
+        let p = document.getElementById('contact-Percentage').value
+        if (p.length == "" || p.length == 0) {
+            PercentageError.innerHTML = 'Percentage is required';
+            return false
+        }
+        if (phone.length !== 10) {
+            PercentageError.innerHTML = 'Phone shold be 10 digits'
+            return false
+        }
+        else {
+            PercentageError.innerHTML = ''
+            return true
+        }
+    }
+
+
+</script>
+<script>
+    function validateform() {
+        if (validatecode() && validatepacentage()) {
+            return true
+        } else {
+            validatecode()
+            validatepacentage()
+            return false
+        }
     }
 </script>

@@ -83,7 +83,7 @@
               <table class="table table-hover" id="monthly-table">
                 <thead>
                   <tr>
-                    <th scope="col">Date</th>
+                    <th scope="col">Month</th>
                     <th scope="col">Total Sale Amount</th>
                     <th scope="col">Total No of Order</th>
 
@@ -104,7 +104,7 @@
                   {{/each}}
                   <tr>
                     <td>
-                      <h6 class="text-center"> <strong>Total Sale:</strong>{{monthlySailsReport.totalPrice}}</h6>
+                      <h6 class="text-center text-danger"> <strong>Total Sale:</strong>{{monthlySailsReport.totalPrice}}</h6>
                     </td>
                   </tr>
                 </tbody>
@@ -130,7 +130,7 @@
               <table class="table table-hover" id="yearly-table">
                 <thead>
                   <tr>
-                    <th scope="col">Date</th>
+                    <th scope="col">Year</th>
                     <th scope="col">Total Sale Amount</th>
                     <th scope="col">Total No of Order</th>
 
@@ -151,7 +151,7 @@
                   {{/each}}
                   <tr>
                     <td>
-                      <h6 class="text-center"> <strong>Total Sale:</strong> {{yearlySailsReport.totalPrice}}</h6>
+                      <h6 class="text-center text-danger"> <strong>Total Sale:</strong> {{yearlySailsReport.totalPrice}}</h6>
                     </td>
                   </tr>
                 </tbody>

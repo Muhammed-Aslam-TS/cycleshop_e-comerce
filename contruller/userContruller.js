@@ -399,7 +399,7 @@ paypal.configure({
             res.json({ status: true })
         })
     },
-    module.exports.dashbord2 = async (req, res, next) => {
+    module.exports.dashbord = async (req, res, next) => {
         //address.............
         let address = await dashBordHelpers.getUsserAddress(req.session.user._id)
         //user......................
@@ -408,8 +408,6 @@ paypal.configure({
         let orders = await userHelpers.getUserOrder(req.session.user._id)
         //wallet..............................
         let wallet = await waletHelpers.getWalet(req.session.user._id)
-        console.log(wallet);
-        console.log('****************************************');
         //refral..............................
         let refral = await userHelpers.getRefrralCode(req.session.user._id)
         //userr..............................
