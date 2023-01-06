@@ -42,7 +42,8 @@ module.exports = {
 
             let orderDetils = await db.get().collection(collection.ORDER_COLLECTIONS)
                 .findOne({ 'products.item': ObjectId(proId) })
-
+            console.log(orderDetils);
+            console.log('__________________________orderDetils');
             const indexNum = orderDetils.products.findIndex(indexNo)
 
             let trackOrder = orderDetils.products[indexNum].trackorder
@@ -61,8 +62,12 @@ module.exports = {
             if (trackOrder == "canceled" && orderDetils.paymentMethod != "COD") {
 
                 let wallet = await db.get().collection(collection.WALET_COLLECTION).findOne({ user: ObjectId(userId) })
+                console.log(wallet);
+                console.log('__________________________wallet');
                 let finelAmount = parseInt(wallet.balance) + TotalPrice
                 finelAmount = parseInt(finelAmount)
+                console.log(finelAmount);
+                console.log('__________________________finel');
 
                 let transactions = {
                     credit: parseInt(TotalPrice),

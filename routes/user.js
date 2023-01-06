@@ -118,7 +118,7 @@ router.get('/success/:id', verifyPaymentpaypala);
 router.get('/orderSuccess', OrderSuccess)
 //end payment Methord
 
-router.get('/dashboard', verifyLogin, Dashboard)
+//router.get('/dashboard', verifyLogin, Dashboard)
 
 router.get('/viewOrderProducts/:id', verifyLogin, ViewOrderProducts)
 
