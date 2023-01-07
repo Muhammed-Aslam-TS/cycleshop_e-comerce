@@ -162,7 +162,7 @@ router.get('/returnProduct/:id', verifyLogin, ReturnProduct)
 
 router.post('/orderReturn', verifyLogin, OrderReturn)
 
-router.post('/searchSubmit', SearchSubmit)
+router.post('/searchSubmit', verifyLogin,SearchSubmit)
 
 
 module.exports = router

@@ -462,5 +462,6 @@ paypal.configure({
     },
     module.exports.SearchSubmit = async (req, res, next) => {
         let products = await userHelpers.searchDetils(req.body)
-        res.render('user/searchResult', { products, user: true })
+        let cartCount = await userHelpers.getCartCount(req.session.user._id)
+        res.render('user/searchResult', { products, user: true ,cartCount })
     }
