@@ -64,6 +64,7 @@ router.post('/register', registerPost);
 router.post('/login', loginPost)
 
 router.get('/logout', (req, res, next) => {
+
   req.session.destroy()
   res.redirect('/')
 })
