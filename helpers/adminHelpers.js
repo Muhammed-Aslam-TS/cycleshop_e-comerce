@@ -59,20 +59,6 @@ module.exports = {
         })
     },
 
-    // orderCancle: (orderId) => {
-    //     Status = orderId.status
-    //     return new Promise((resolve, reject) => {
-    //         db.get().collection(collection.ORDER_COLLECTIONS)
-    //         .updateOne({_id:ObjectId(orderId.user)},
-    //         {
-    //             $set:{
-    //                 status:Status
-    //             }
-    //         }).then(()=>{
-    //             resolve()
-    //         })
-    //     })
-    // },
     getUserOrder: () => {
         return new Promise(async (resolve, reject) => {
             let orders = await db.get().collection(collection.ORDER_COLLECTIONS)
@@ -125,8 +111,7 @@ module.exports = {
         })
     },
     catogoryDelete: (catogoryId) => {
-        console.log(catogoryId);
-        console.log('-----------------------');
+     
         return new Promise(async (resolve, reject) => {
             let catogoryDelete = await db.get().collection(collection.ADD_CATEGORY_COLLECTION)
                 .deleteOne({ _id: ObjectId(catogoryId) })
@@ -434,34 +419,8 @@ module.exports = {
             resolve()
         })
     },
-    // offerDelete: (proId) => {
-    //     return new Promise(async (resolve, reject) => {
-    //         let product = await db.get().collection(collection.PRODUCTS_COLLECTION).findOne({ _id: ObjectId(proId) })
-    //         console.log(product);
-
-    //         let price = product.OldPrice
-
-    //         let oldPrice = product.OldPrice
-    //         let productOffer = product.productOffer
-
-    //         db.get().collection(collection.PRODUCTS_COLLECTION).updateOne({ _id: ObjectId(proId) },
-    //             {
-    //                 $set: {
-    //                     Price: price,
-    //                 },
-    //                 $unset: {
-    //                     OldPrice: oldPrice,
-    //                     productOffer: productOffer,
-    //                 }
-    //             })
-    //         resolve()
-
-    //     })
-
-    // }
+  
     updateStatus: (details) => {
-console.log(details);
-console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
 
         let orderId = details.orderId
         let proId = details.proId

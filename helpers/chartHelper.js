@@ -6,6 +6,7 @@ const { ObjectId } = require('mongodb');
 
 module.exports = {
     totalCodSales:()=>{
+        console.log('__________________________cod');
         return new Promise(async(resolve, reject)=>{
             let CodTotal= await db.get().collection(collection.ORDER_COLLECTIONS).aggregate([
                 {
@@ -32,8 +33,8 @@ module.exports = {
                     }
                 }
             ]).toArray();
-            console.log(CodTotal);
-            console.log('55555555555555555555555');
+            // console.log(CodTotal);
+            // console.log('___________________________________');
             resolve(CodTotal)
         })
     },
@@ -64,39 +65,12 @@ module.exports = {
                     }
                 }
             ]).toArray();
+            // console.log(razorpayTotal);
+            // console.log('________________________________');
             resolve(razorpayTotal)
         })
     },
-    // totalRazorpaySales:()=>{
-    //     return new Promise(async(resolve, reject)=>{
-    //         let razorpayTotal= await db.get().collection(collection.ORDER_COLLECTION).aggregate([
-    //             {
-    //                 $match: 
-    //                 {
-    //                     paymentMethod:'Razorpay'
-    //                 }
-    //             },
-    //             {
-    //                 $project: 
-    //                 {
-    //                     totalPrice:1
-    //                 }
-    //             },
-    //             {
-    //                 $group: 
-    //                 {
-    //                     _id:null,
-    //                     CodTotal:
-    //                     {
-    //                         $sum:'$totalPrice'
-    //                     }
-
-    //                 }
-    //             }
-    //         ]).toArray();
-    //         resolve(razorpayTotal)
-    //     })
-    // },
+    
     totalPaypalSales:()=>{
         return new Promise(async(resolve, reject)=>{
             let paypalTotal= await db.get().collection(collection.ORDER_COLLECTIONS).aggregate([
@@ -124,6 +98,8 @@ module.exports = {
                     }
                 }
             ]).toArray();
+            // console.log(paypalTotal);
+            // console.log('_________________________________');
             resolve(paypalTotal)
         })
     },
@@ -152,8 +128,6 @@ module.exports = {
                 },
  
             ]).toArray()
-            console.log('Daily Sales');
-            console.log(dailySales)
             resolve(dailySales)
    
         })

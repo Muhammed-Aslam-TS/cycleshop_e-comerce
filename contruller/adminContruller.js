@@ -58,19 +58,10 @@ module.exports.index = (req, res, next) => {
         })
     },
     module.exports.adminDashbordPost = async (req, res, next) => {
-        // let dailySailsReport = await adminHelpers.dailySailsReport()
-        // let monthlySailsReport = await adminHelpers.monthlySailsReport()
-        // let yearlySailsReport = await adminHelpers.yearlySailsReport()
-        // let getDailysalesreportfordownload = await adminHelpers.getDailysalesreportfordownload()
-        // let getMonthlysalesreportfordownload = await adminHelpers.getDailysalesreportfordownload()
-        // let getYearlysalesreportfordownload = await adminHelpers.getDailysalesreportfordownload()
-
-       // let cod = await chartHelper.totalCodSales()
-  
-     
+        let cod =await chartHelper.totalCodSales()
         let razorpay = await chartHelper.totalRazorpaySales()
         let paypal = await chartHelper.totalPaypalSales()
-       // let totalRevenue = cod[0].CodTotal + razorpay[0].razorpayTotal + paypal[0].paypalTotal
+        let totalRevenue = cod[0].CodTotal + razorpay[0].razorpayTotal + paypal[0].paypalTotal
 
         let getTotalSalesGraph = await chartHelper.getTotalSalesGraph()
         let dailySalesReport = await chartHelper.getDailySalesReport()
@@ -79,14 +70,8 @@ module.exports.index = (req, res, next) => {
 
         res.render('admin/adminDashbord', {
             admin: true, razorpay, paypal, dailySalesReport,
-            monthlySalesReport, yearlySalesReport, getTotalSalesGraph
+            monthlySalesReport, yearlySalesReport, getTotalSalesGraph,cod,totalRevenue
         });
-
-
-        // res.render('admin/adminDashbord', {
-        //     admin: true, dailySailsReport, monthlySailsReport, yearlySailsReport,
-        //     getDailysalesreportfordownload, getMonthlysalesreportfordownload, getYearlysalesreportfordownload
-        // })
 
     },
     module.exports.User = (req, res, next) => {
@@ -94,17 +79,6 @@ module.exports.index = (req, res, next) => {
     },
     module.exports.products =  (req, res, next) => {
         productsHelpers.getAllproducts().then(async(products) => {
-
-            // const page = req.query.page || 1;
-            // const offset = (page - 1) * itemsPerPage;
-            // const limit = itemsPerPage;
-
-            // Retrieve the appropriate items from the database
-            //const items = await collection.find().skip(offset).limit(limit).toArray();
-
-            // Render the items to the user
-            // res.render('items', { items });
-
              res.render('admin/productList', { products, admin: true })
         })
     },
@@ -138,6 +112,15 @@ module.exports.index = (req, res, next) => {
         })
     },
     module.exports.addProductPost = (req, res, next) => {
+        sharp("req.filse")
+        .resize(200,200,{
+            fit: "contain",
+            background :{
+                r: 255,
+                b: 255,
+                g:0,
+            }
+        })
         Imagefiles = req.files
         ImageFileName = Imagefiles.map((images) => {
             return images.filename
@@ -172,10 +155,6 @@ module.exports.index = (req, res, next) => {
         })
     },
     module.exports.AddCategory = function (req, res, next) {
-        // router.get('/allCoupon', (req, res, next) => {
-        //     let coupon = couppenHelpers.getAllcoupon()
-        //     res.render('user/couponList', { coupon })
-        // })
         res.render('admin/addCategory', { admin: true })
     },
     module.exports.CateegoryPost = (req, res, next) => {
@@ -185,13 +164,6 @@ module.exports.index = (req, res, next) => {
             res.redirect('/admin/addCategory')
         })
     },
-    // module.exports.DeleteCatogory = (req, res, next) => {
-    //     console.log(req.params.id);
-    //     console.log('00000000000000000000000000000');
-    //     adminHelpers.catogoryDelete(req.params.id).then((deleteBanner) => {
-    //         res.redirect('/admin/catogoryList')
-    //     })
-    // },
     module.exports.CatogoryEdit = (req, res, next) => {
         adminHelpers.editBanner(req.params.id).then((bannrtEdit) => {
             res.redirect('/admin/editCategory')

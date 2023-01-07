@@ -197,20 +197,15 @@ paypal.configure({
             let cartCount = await userHelpers.getCartCount(req.session.user._id)
             let user = req.session.user._id
             let category1 = req.params.name
-            console.log(category1);
 
             let page = {}
             page.total = await productsHelpers.getCountProducts()
-            console.log("LLL+++++++++++++");
-            console.log(page.total);
             page.perpage = 3
             page.pages = Math.ceil(page.total / page.perpage)
             page.pageno = (req.query.page == null) ? 1 : parseInt(req.query.page)
             page.startFrom = (page.pageno - 1) * page.perpage
             let pro = await productsHelpers.productHelpers(page)
             let member = req.session.user;
-            console.log("???????");
-            console.log(page);
             res.render('user/productsList', { pro, category1, page, products, cartCount, user })
         })
     },
@@ -355,20 +350,13 @@ paypal.configure({
     module.exports.OrderSuccess = (req, res, next) => {
         res.render('user/orderSuccess',)
     },
-    module.exports.Dashboard = async (req, res, next) => {
-        let orders = await userHelpers.getUserOrder(req.session.user._id)
-        console.log(orders);
 
-        res.render('user/dashboard', { user: req.session.user, orders, })
-    },
     module.exports.ViewOrderProducts = async (req, res, next) => {
         let products = await userHelpers.getOrderProducts(req.params.id)
         let orders = await userHelpers.getUserOrder(req.session.user._id)
         res.render('user/viewOrderProducts', { products, orders })
     },
     module.exports.OrderCancle = (req, res, next) => {
-        console.log(req.body);
-        console.log('body222222222222222222222222222222222');
         userHelpers.orderCancle(req.body).then(() => {
             res.json({ status: true })
         })
@@ -456,8 +444,6 @@ paypal.configure({
 
     },
     module.exports.UpdateStatus = async (req, res, next) => {
-        console.log(req.body);
-        console.log('===================================');
         let proId = await waletHelpers.getWaletAmount(req.body, req.session.user._id).then((response) => {
         })
         adminHelpers.cancelOrder(req.body).then(() => {
