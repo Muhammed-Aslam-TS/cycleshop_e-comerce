@@ -1,4 +1,5 @@
 require('dotenv').config()
+const session = require('express-session');
 var express = require('express');
 var router = express.Router();
 var productsHelpers = require('../helpers/productsHelpers')
@@ -10,8 +11,7 @@ const { render, response } = require('../app');
 
 const waletHelpers = require('../helpers/waletHelpers');
 const { Admin } = require('mongodb');
-const { index, AdminDashbord, SalesReport, adminDashbordPost, User, products, productsDelete, productsEdit, productsEditPost, AddProduct, addProductPost, AllUser, blockUser, unblockUser, CatogoryList, AddCategory, addCategoryPost, DeleteCatogory, CatogoryEdit, OrderStatus, UserOrderStatus, ViewBanner, AddBanner, addBannerPost, BanerEdit, UserDetils, BannerDelete, ProductOffer, CategoryOffer, productOfferPost, AddCouppen, CouponList, OrderProduct, updateStatus, addCouppenPost, ReturnStatus, AddBannerPost, Banner, BannerAdd, CateegoryPost } = require('../contruller/adminContruller');
-
+const { index, AdminDashbord, SalesReport, adminDashbordPost, User, products, productsDelete, productsEdit, productsEditPost, AddProduct, addProductPost, AllUser, blockUser, unblockUser, CatogoryList, AddCategory, addCategoryPost, CatogoryEdit, OrderStatus, UserOrderStatus, ViewBanner, AddBanner, addBannerPost, BanerEdit, UserDetils, BannerDelete, ProductOffer, CategoryOffer, productOfferPost, AddCouppen, CouponList, OrderProduct, updateStatus, addCouppenPost, ReturnStatus, AddBannerPost, Banner, BannerAdd, CateegoryPost } = require('../contruller/adminContruller');
 
 
 
@@ -61,10 +61,8 @@ router.get('/addCategory', AddCategory);
 
 router.post('/addCategory', upload2.any('Images'), CateegoryPost)
 
-router.delete('/deleteCatogory/:id', (req, res, next) => {
-  console.log(req.params.id);
-  console.log('00000000000000000000000000000');
-  adminHelpers.catogoryDelete(req.params.id).then((deleteBanner) => {
+router.get('/deleteCatogory/:id', (req, res, next) => {
+ adminHelpers.catogoryDelete(req.params.id).then((deleteBanner) => {
     res.redirect('/admin/catogoryList')
   })
 })

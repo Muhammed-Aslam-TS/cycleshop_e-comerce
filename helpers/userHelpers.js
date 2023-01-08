@@ -1,4 +1,4 @@
-require ('dotenv').config()
+require('dotenv').config()
 const db = require('../config/connection')
 var collection = require('../config/collections');
 const bcrypt = require('bcrypt');
@@ -6,6 +6,7 @@ const { use, response } = require('../app');
 const { ObjectId } = require('mongodb');
 const referralCodes = require('referral-codes');
 const { log } = require('handlebars');
+const { blocUser } = require('./adminHelpers');
 
 module.exports = {
 
@@ -149,6 +150,12 @@ module.exports = {
                 response.status = false
                 resolve(response)
             }
+        })
+    },
+    getUser: (userId) => {
+        return new Promise((resolve, reject) => {
+            let user = db.get().collection(collection.USER_COLLECTION).findOne({_id:ObjectId(userId)}) 
+            resolve(user)
         })
     },
     addToCart: async (productId, userId) => {
@@ -420,7 +427,7 @@ module.exports = {
                     let Stock = (0 - element.quantity)
 
                     db.get().collection(collection.PRODUCTS_COLLECTION).updateOne({ _id: ObjectId(proId) },
-                    
+
                         {
                             $inc: {
                                 Stock: Stock
@@ -744,10 +751,10 @@ module.exports = {
             resolve(products)
         })
     },
-    getRefrralCode:(userId)=>{
+    getRefrralCode: (userId) => {
         console.log(userId);
-        return new Promise(async(resolve, reject) => {
-            let reffral =await db.get().collection(collection.USER_COLLECTION).findOne({_id:ObjectId(userId)})
+        return new Promise(async (resolve, reject) => {
+            let reffral = await db.get().collection(collection.USER_COLLECTION).findOne({ _id: ObjectId(userId) })
             resolve(reffral)
         })
     }

@@ -24,6 +24,8 @@ module.exports = {
                 { _id: ObjectId(userId) },
                 { $set: { userBlocked: false } }
             )
+            resolve(unblock)
+
         })
     },
     deleetProducts: (productId) => {

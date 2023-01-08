@@ -71,7 +71,7 @@ Handlebars.registerHelper('isOutForDelivary', (value) => {
   return value == 'OutForDelivery' ? true : false
 })
 Handlebars.registerHelper('isReturnRequsted', (value) => {
-  return value == 'ReturnAproved' ? true : false
+  return value == 'Return requsted' ? true : false
 })
 
 

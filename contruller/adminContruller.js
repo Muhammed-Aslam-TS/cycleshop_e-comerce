@@ -58,10 +58,10 @@ module.exports.index = (req, res, next) => {
         })
     },
     module.exports.adminDashbordPost = async (req, res, next) => {
-        let cod =await chartHelper.totalCodSales()
+        let cod = await chartHelper.totalCodSales()
         let razorpay = await chartHelper.totalRazorpaySales()
         let paypal = await chartHelper.totalPaypalSales()
-        let totalRevenue = cod[0].CodTotal + razorpay[0].razorpayTotal + paypal[0].paypalTotal
+        let totalRevenue = await cod[0].CodTotal + razorpay[0].razorpayTotal + paypal[0].paypalTotal
 
         let getTotalSalesGraph = await chartHelper.getTotalSalesGraph()
         let dailySalesReport = await chartHelper.getDailySalesReport()
@@ -70,16 +70,16 @@ module.exports.index = (req, res, next) => {
 
         res.render('admin/adminDashbord', {
             admin: true, razorpay, paypal, dailySalesReport,
-            monthlySalesReport, yearlySalesReport, getTotalSalesGraph,cod,totalRevenue
+            monthlySalesReport, yearlySalesReport, getTotalSalesGraph, cod, totalRevenue
         });
 
     },
     module.exports.User = (req, res, next) => {
         res.render('admin/allUsers', { admin: true })
     },
-    module.exports.products =  (req, res, next) => {
-        productsHelpers.getAllproducts().then(async(products) => {
-             res.render('admin/productList', { products, admin: true })
+    module.exports.products = (req, res, next) => {
+        productsHelpers.getAllproducts().then(async (products) => {
+            res.render('admin/productList', { products, admin: true })
         })
     },
     module.exports.productsDelete = (req, res, next) => {
@@ -107,29 +107,29 @@ module.exports.index = (req, res, next) => {
     },
     module.exports.AddProduct = (req, res, next) => {
         productsHelpers.getAllcategory().then((categoryName) => {
-            
+
             res.render('admin/addProduct', { admin: true, categoryName })
         })
     },
     module.exports.addProductPost = (req, res, next) => {
-        sharp("req.filse")
-        .resize(200,200,{
-            fit: "contain",
-            background :{
-                r: 255,
-                b: 255,
-                g:0,
-            }
-        })
-        Imagefiles = req.files
-        ImageFileName = Imagefiles.map((images) => {
-            return images.filename
-        })
-        sharp('input.jpg')
-        .extract({ left: 0, top: 0, width: 100, height: 100 })
-        .toFile('output.jpg', (err, info) => {
-          // output.jpg is a 100x100 version of input.jpg
-        });
+        // sharp("req.filse")
+        //     .resize(200, 200, {
+        //         fit: "contain",
+        //         background: {
+        //             r: 255,
+        //             b: 255,
+        //             g: 0,
+        //         }
+        //     })
+        // Imagefiles = req.files
+        // ImageFileName = Imagefiles.map((images) => {
+        //     return images.filename
+        // })
+        // sharp('input.jpg')
+        //     .extract({ left: 0, top: 0, width: 100, height: 100 })
+        //     .toFile('output.jpg', (err, info) => {
+        //         // output.jpg is a 100x100 version of input.jpg
+        //     });
 
         req.body.img = ImageFileName
         productsHelpers.addProduct(req.body, (id) => {
@@ -140,12 +140,23 @@ module.exports.index = (req, res, next) => {
             res.render('admin/userList', { user, admin: true })
         })
     },
-    module.exports.blockUser = (req, res, next) => {
-        adminHelpers.blocUser(req.query.id).then((bolck) => {
+    module.exports.blockUser = async (req, res, next) => {
+
+        adminHelpers.blocUser(req.query.id).then((block) => {
             res.redirect('/admin/allUser')
         })
+        let user = await userHelpers.getUser(req.query.id)
+        console.log(user);
+        console.log('__________________________user');
+        if (user.userBlocked == true) {
+            req.session.destroy()
+            res.redirect('/')
+        }
+
     },
     module.exports.unblockUser = (req, res, next) => {
+        console.log(req.query.id);
+        console.log('__________________________id');
         adminHelpers.unblocUser(req.query.id).then((unblock) => {
             res.redirect('/admin/allUser')
         })
